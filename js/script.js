@@ -1,4 +1,4 @@
-setURL('https://gruppe-377.developerakademie.net/smallest_backend_ever');
+setURL('https://oliver-jung.developerakademie.net/join/smallest_backend_ever');
 let currentUserEmail = localStorage.getItem('userLoggedInEmail');
 let users = [];
 let currentUser;
