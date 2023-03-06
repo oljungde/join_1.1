@@ -406,7 +406,6 @@ function changeTask(id) {
  * shows the selected priority for the current task in the edit mask
  */
 function editShowSelectedPriority() {
-
     if (currentTask.priority == "urgent") {
         prioritySelect = "urgent";
         showSelectedPriorityUrgent();

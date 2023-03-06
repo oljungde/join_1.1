@@ -85,11 +85,9 @@ async function addToTask(i, taskStatus) {
  */
 function ShowTaskAddedPopUp() {
   document.getElementById('task_added_to_board_img').classList.remove('d-none');
-
   setTimeout(() => {
     document.getElementById('task_added_to_board_img').classList.add('d-none');
   }, 1000);
-
 }
 
 
@@ -245,35 +243,6 @@ function showSelectedContactBubbles() {
       `;
   }
   selectorcontactIndex--;
-}
-
-
-/**
- * @returns the html for the invite new Contact Link
- */
-function showInviteNewContact() {
-  return /*html*/ `
-  <div class="selectorCell pointer" onclick="openAddContact(1)">
-    <div>Invite new contact</div>
-    <div><img src="./assets/img/newContact-img.png"></div>
-  </div>
-`;
-}
-
-
-/**
- * @param {*} i 
- * @param {*} activUserContact 
- * @param {*} currentUser 
- * @returns the html for the contacts dropdown menu in the add task html
- */
-function showContactsDropDown(i, activUserContact, currentUser) {
-  return /*html*/`
-  <div onclick="selectedUser('${currentUser.contacts[i]['contactInitials']}', '${currentUser.contacts[i]['contactcolor']}', '${currentUser.contacts[i]['contactName']}')" class="selectorCell pointer">
-      <div>${activUserContact[i].contactName}</div>
-      <div><img id="user_select${currentUser.contacts[i]['contactInitials']}${currentUser.contacts[i]['contactcolor']}${currentUser.contacts[i]['contactName']}" src="./assets/img/userSelect-img.png"></div>
-  </div>
-  `;
 }
 
 

@@ -9,23 +9,21 @@ function generateTodoHTML(element) {
         <div id="task-menu-${element.id}" class="task-menu d-none">
             <div ontouchstart="showDetailWindow(${element.id})" class="task-menu-edit">Edit</div>
             <div id="touch-move-${element.id}" class="task-menu-move">Move to:</div>
-            
-        </div>   
-      <span class="${element['category']['TaskColor']}">${element['category']['Category']}</span>
-      <div class=titleAndText>
-          <h4 class="title">${element['title']}</h4>
-          <div class="text">${element['description']}</div>
-      </div>
+        </div>
 
-      <div id="task_progress_${element['id']}" class="task-progress">
-       
-      </div>
+        <span class="${element['category']['TaskColor']}">${element['category']['Category']}</span>
 
-      <div class="UserAndPriority" id="user_and_priority">
-        <div class="contacts-in-task" id="contacts${element['id']}"></div>
-        
-        <div class="priority"><img src="assets/img/prio-${element['priority']}.png" alt=""></div>
-      </div>
+        <div class=titleAndText>
+            <h4 class="title">${element['title']}</h4>
+            <div class="text">${element['description']}</div>
+        </div>
+
+        <div id="task_progress_${element['id']}" class="task-progress"></div>
+
+        <div class="UserAndPriority" id="user_and_priority">
+            <div class="contacts-in-task" id="contacts${element['id']}"></div>
+            <div class="priority"><img src="assets/img/prio-${element['priority']}.png" alt=""></div>
+        </div>
     </div>`;
 }
 
@@ -37,7 +35,7 @@ function generateTodoHTML(element) {
  */
 function progressBarTemplate(taskId) {
     return /*html*/ `
-         <div class="progress-bar">
+        <div class="progress-bar">
             <div class="progress-bar-fill" id="fill${taskId}"></div>
         </div>
         <span class="progress-bar-text" id="fill-text${taskId}"> Done</span>
@@ -52,9 +50,7 @@ function progressBarTemplate(taskId) {
  */
 function dropTemplateHTML(status) {
     return /*html*/ `
-        <div id="drop_template_${status}" class="drag-template d-none">
-            
-        </div>
+        <div id="drop_template_${status}" class="drag-template d-none"></div>
     `;
 }
 
@@ -82,27 +78,30 @@ function detailContentTemplate() {
         <div class="detail-category ${currentTask.category.TaskColor}">
             ${currentTask.category.Category}
         </div>
+
         <h2 class="detail-title">${currentTask.title}</h2>
         <div class="detail-text">
             ${currentTask.description}
         </div>
+
         <div class="detail-dueDate"> 
             <h5>Due date:</h5>  
             <p>${currentTask.dueDate}</p>
         </div>
+
         <div class="detail-priority">
             <h5> Priority:</h5> 
             <img src="assets/img/detail-prio-${currentTask.priority}.png" alt="">
         </div>
+
         <div class="detail-assignedTo"> 
             <h5>Assigned To:</h5> 
-            <div id="detail_assigned_contacts">
-                
-            </div> 
+            <div id="detail_assigned_contacts"></div> 
         </div>
+
         <img id="edit_button" class="edit-button pointer" src="assets/img/edit-button.png" onclick="changeTask(${currentTask.id})">
         <div class="detail-subTasks" id="detail_subTasks">
-        <h5>Subtasks:</h5>
+            <h5>Subtasks:</h5>
         </div>
     `;
 }
