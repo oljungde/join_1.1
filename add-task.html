@@ -25,22 +25,17 @@
 </head>
 
 <body onload="initAddTask()">
-
     <div class="overlay-header" id="overlay_header">
         <a href="./summary.html"><img src="./assets/img/logo-blue.png" alt="Join Logo"></a>
-        <div class="rightContainer">
-
-        </div>
+        <div class="rightContainer"></div>
     </div>
 
     <div class="mainheader" w3-include-html="./assets/templates/header.html"></div>
 
     <div class="Main-Container">
-
         <div class="sidebar" w3-include-html="./assets/templates/navigation.html"></div>
 
         <div class="main-content add-task-content">
-
             <form class="addTaskFormHTML" onsubmit="addToTask(0, 'toDo'); return false; ">
                 <div class="input-title">
                     <input id="AddTitle" type="text" placeholder="Enter a title" autocomplete="off" required>
@@ -53,13 +48,9 @@
                     </div>
                 </div>
 
-                <div class="selector-user-dropdown" id="selector_user_dropdown">
+                <div class="selector-user-dropdown" id="selector_user_dropdown"></div>
 
-                </div>
-
-                <div id="selector_user_dropdown_contact" class="display-flex-in-addtask">
-
-                </div>
+                <div id="selector_user_dropdown_contact" class="display-flex-in-addtask"></div>
 
                 <div class="input border-bottom" style="display:flex; flex-direction: column; align-items:flex-start;">
                     <h4>Due Date</h4>
@@ -70,6 +61,7 @@
 
                 <h4>Category</h4>
                 <div class="d-none" class="category-alert" id="chooseCategory">This field is required</div>
+
                 <div id="category_selector">
                     <div class="selector-header" onclick="showTaskCategories()">
                         Select task category
@@ -77,9 +69,7 @@
                     </div>
                 </div>
 
-                <div class="selector-Category-Dropdown" id="selector_Category_Dropdown">
-
-                </div>
+                <div class="selector-Category-Dropdown" id="selector_Category_Dropdown"></div>
 
                 <div class="priorityContainer">
                     <div class="priority-urgent" onclick="selectedPriority(1)" id="priorityUrgent">
@@ -104,14 +94,13 @@
                 </div>
 
                 <h4>Subtasks</h4>
-                <div id="empty_subtask_text">
-
-                </div>
+                <div id="empty_subtask_text"></div>
 
                 <div class="input-subtasks pointer" id="newSubtask_select">
                     <div class="inputUser">
                         <div class="inputfield-new-user">
                             <input class="input border-bottom" id="new_subtask_text" type="text" placeholder="Add new subtask">
+
                             <div class="checkAndCrossIconsCategory">
                                 <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
                                 <img src="./assets/img/devider.png">
@@ -120,27 +109,25 @@
                         </div>
                     </div>
 
-                    <div class="new-Subtasks" id="addSubtaskCheckbox">
-                    </div>
+                    <div class="new-Subtasks" id="addSubtaskCheckbox"></div>
                 </div>
 
                 <div class="addTask-bottom">
                     <button class="btn clear-button">
-                        <p>Clear</p>
-                        <img src="assets/img/grey-cross.png" alt="">
+                        <p>Clear</p><img src="assets/img/grey-cross.png" alt="">
                     </button>
 
                     <button class="btn addTask-button">
-                        <p>Create Task</p>
-                        <img src="assets/img/white-check.png" alt="">
+                        <p>Create Task</p><img src="assets/img/white-check.png" alt="">
                     </button>
                 </div>
             </form>
+
             <div id="detail_content"></div>
+
             <div id="AddTaskMaskContact" onclick="doNotClose(event)" class="relative d-none"></div>
         </div>
     </div>
-
 </body>
 
 </html>

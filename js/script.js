@@ -127,7 +127,7 @@ function imgheader() {
 
 
 /**
- * init function for help.html, privacy-policy.html and impress.html
+ * init function for help.html and impress.html
  */
 async function initHelpLegalNotice() {
     await init();

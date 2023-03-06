@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="./css/add-task.css">
     <link rel="stylesheet" href="./css/animations.css">
     <link rel="stylesheet" href="./css/contact.css">
-
-
     <script src="./smallest_backend_ever/mini_backend.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/add-task-templates.js"></script>
@@ -27,26 +25,23 @@
 </head>
 
 <body onload="initBoard();">
-
-    <div id="detail_container" class="DetailContainer d-none animationFadeInBottom " onclick="closeDetailTask()">
-
-    </div>
+    <div id="detail_container" class="DetailContainer d-none animationFadeInBottom " onclick="closeDetailTask()"></div>
 
     <img id="task_added_to_board_img" class="task-added-to-board animationFadeInBottom d-none" src="./assets/img/task-added-to-board.png" alt="">
     <div id="AddTaskMaskBg" class="AddTaskMaskBg d-none" onclick="hideAddTaskMask()">
         <div id="AddTaskMaskContainer" class="AddTaskMaskContainer animationFadeInRight d-none " onclick="doNotClose(event)"></div>
+
         <div id="AddTaskMaskContact" onclick="doNotClose(event)"></div>
+
         <div id="detail_content" class="Detail d-none" onclick="doNotClose(event)"></div>
     </div>
 
     <div class="mainheader" w3-include-html="./assets/templates/header.html"></div>
 
     <div class="Main-Container">
-
         <div class="sidebar" w3-include-html="./assets/templates/navigation.html"></div>
 
         <div class="main-content">
-
             <div class="topBar">
                 <div class="InputAndButton">
                     <div class="search-task-container">
@@ -101,8 +96,6 @@
             </div>
         </div>
     </div>
-
 </body>
-
 
 </html>
