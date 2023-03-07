@@ -167,7 +167,6 @@ a:hover {
 
 /* Style for the Sidenav-link  */
 .sidebar {
-    background-color: white;
     min-width: 230px;
     display: flex;
     flex-direction: column;
@@ -178,50 +177,35 @@ a:hover {
 }
 
 .sidebar a {
-    text-decoration: none;
     color: #42526e;
 }
 
 .sidebar-navigation {
-    padding-top: 66px;
-    padding-left: 23px;
-    padding-right: 23px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
+    padding: 66px 23px 0;
 }
 
 .nav-link {
+    width: 185px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 15px;
+    gap: 20px;
+    padding: 16px 32px;
     border-radius: 8px;
-    color: black;
-}
-
-.active {
-    background-color: var(--color-blue-light);
 }
 
 .nav-link img {
     width: 22px;
     height: 22px;
-    margin-left: 20px;
 }
 
-.nav-link p {
-    padding-right: 20px;
+.legal-notice {
+    width: 200px;
+    margin-bottom: 112px;
 }
 
-.legalNotice {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-    color: black;
-    padding-bottom: 112px;
+.active {
+    background-color: var(--color-blue-light);
 }
 
 .bg-blue {
@@ -283,12 +267,20 @@ a:hover {
     }
 
     .sidebar-navigation {
+        width: 100%;
         display: flex;
-        flex-direction: row;
-        padding: 0;
+        justify-content: space-around;
+        padding: 0 32px;
     }
 
-    .legalNotice {
+    .nav-link {
+        width: unset;
+        gap: 10px;
+        padding: 16px;
+        border-radius: 0;
+    }
+
+    .legal-notice {
         display: none;
     }
 
@@ -302,7 +294,7 @@ a:hover {
 @media (max-width: 576px) {
 
     .sidebar-navigation {
-        column-gap: 8px;
+        padding: 0 8px;
     }
 
     .nav-link {
@@ -311,15 +303,4 @@ a:hover {
         padding: 5px;
         align-items: center;
     }
-
-    .nav-link img {
-        margin-left: 0;
-    }
-
-    .nav-link p {
-        margin: 0;
-        text-align: center;
-        padding-right: 0;
-    }
-
 }
