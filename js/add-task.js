@@ -35,10 +35,10 @@ function getToday() {
  */
 async function addToTask(i, taskStatus) {
   if (taskCategoryFinaly.length == 0) {
-    document.getElementById('chooseCategory').classList.remove('d-none');
+    document.getElementById('chooseCategory').classList.remove('display-none');
   }
   else if (prioritySelect.length == 0) {
-    document.getElementById('chossePriority').classList.remove('d-none');
+    document.getElementById('chossePriority').classList.remove('display-none');
   }
   else {
     let title = document.getElementById('AddTitle');
@@ -70,8 +70,8 @@ async function addToTask(i, taskStatus) {
       filterTasksByStatus();
     }
     else if (i == 1) {
-      document.getElementById('AddTaskMaskBg').classList.add('d-none');
-      document.getElementById('AddTaskMaskContainer').innerHTML = '';
+      document.getElementById('add-task-overlay').classList.add('display-none');
+      document.getElementById('add-task-container').innerHTML = '';
       ShowTaskAddedPopUp();
       filterTasksByStatus();
     }
@@ -84,9 +84,9 @@ async function addToTask(i, taskStatus) {
  * generates the pop up ater a task is created
  */
 function ShowTaskAddedPopUp() {
-  document.getElementById('task_added_to_board_img').classList.remove('d-none');
+  document.getElementById('task_added_to_board_img').classList.remove('display-none');
   setTimeout(() => {
-    document.getElementById('task_added_to_board_img').classList.add('d-none');
+    document.getElementById('task_added_to_board_img').classList.add('display-none');
   }, 1000);
 }
 
@@ -96,12 +96,12 @@ function ShowTaskAddedPopUp() {
  * @param {*} i - idintifies from where the task is created
  */
 function openAddTaskMask(i, taskStatus) {
-  document.getElementById('detail_content').classList.add('d-none');
-  document.getElementById('AddTaskMaskBg').classList.remove('d-none');
-  document.getElementById('AddTaskMaskContainer').classList.remove('d-none');
+  document.getElementById('detail_content').classList.add('display-none');
+  document.getElementById('add-task-overlay').classList.remove('display-none');
+  document.getElementById('add-task-container').classList.remove('display-none');
   userSelect = [];
   selectedSubtasks = [];
-  let openaddtask = document.getElementById('AddTaskMaskContainer');
+  let openaddtask = document.getElementById('add-task-container');
   openaddtask.innerHTML = openAddTaskHtml(i, taskStatus);
   getToday();
 }
@@ -181,11 +181,11 @@ function clearSubTasks() {
 function closeAddTaskMask(i) {
   userSelect = [];
   if (i == 1) {
-    document.getElementById('AddTaskMaskBg').classList.add('d-none');
+    document.getElementById('add-task-overlay').classList.add('display-none');
     selectorcontactIndex = 0;
   }
   else if (i == 0) {
-    document.getElementById('openContactAddtaskBG').classList.add('d-none');
+    document.getElementById('openContactAddtaskBG').classList.add('display-none');
     selectorcontactIndex = 0;
     LFContact();
   }
@@ -375,7 +375,7 @@ async function addCategory() {
       'taskColor': categorySelectedColor
     });
     document.getElementById('alert_message').innerHTML = '';
-    document.getElementById('chooseCategory').classList.add('d-none');
+    document.getElementById('chooseCategory').classList.add('display-none');
     await backend.setItem('users', JSON.stringify(users));
     exitCategoryInput();
     showTaskCategories();

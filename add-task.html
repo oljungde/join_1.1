@@ -36,7 +36,7 @@
         <div class="sidebar" w3-include-html="./assets/templates/navigation.html"></div>
 
         <div class="main-content add-task-content">
-            <form class="addTaskFormHTML" onsubmit="addToTask(0, 'toDo'); return false; ">
+            <form class="add-task-formHTML" onsubmit="addToTask(0, 'toDo'); return false; ">
                 <div class="input-title">
                     <input id="AddTitle" type="text" placeholder="Enter a title" autocomplete="off" required>
                 </div>
@@ -44,11 +44,11 @@
                 <div id="user_selector">
                     <div class="selector-header" onclick="showUsers()">
                         Select contacts to assign
-                        <img class="selectorArrow" src="assets/img/blue-dropdown-arrow.png" alt="">
+                        <img src="assets/img/blue-dropdown-arrow.png" alt="">
                     </div>
                 </div>
 
-                <div class="selector-user-dropdown" id="selector_user_dropdown"></div>
+                <div id="selector_user_dropdown"></div>
 
                 <div id="selector_user_dropdown_contact" class="display-flex-in-addtask"></div>
 
@@ -60,16 +60,16 @@
                 </div>
 
                 <h4>Category</h4>
-                <div class="d-none" class="category-alert" id="chooseCategory">This field is required</div>
+                <div id="chooseCategory" class="display-none">This field is required</div>
 
                 <div id="category_selector">
                     <div class="selector-header" onclick="showTaskCategories()">
                         Select task category
-                        <img class="selectorArrow" src="assets/img/blue-dropdown-arrow.png" alt="">
+                        <img src="assets/img/blue-dropdown-arrow.png" alt="">
                     </div>
                 </div>
 
-                <div class="selector-Category-Dropdown" id="selector_Category_Dropdown"></div>
+                <div id="selector_Category_Dropdown"></div>
 
                 <div class="priorityContainer">
                     <div class="priority-urgent" onclick="selectedPriority(1)" id="priorityUrgent">
@@ -125,7 +125,7 @@
 
             <div id="detail_content"></div>
 
-            <div id="AddTaskMaskContact" onclick="doNotClose(event)" class="relative d-none"></div>
+            <div id="AddTaskMaskContact" onclick="doNotClose(event)" class="relative display-none"></div>
         </div>
     </div>
 </body>

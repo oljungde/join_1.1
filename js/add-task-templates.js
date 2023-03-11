@@ -1,43 +1,42 @@
 function openAddTaskHtml(i, taskStatus) {
   return /*html*/`
-    <form class="addTaskForm" onsubmit="addToTask(${i}, '${taskStatus}'); return false; ">
-      <img class="CloseCross" onclick="closeAddTaskMask(${i})" src="assets/img/group 11.png" alt="">
-      <div class="addTask-top">
+    <form onsubmit="addToTask(${i}, '${taskStatus}'); return false;" class="add-task-form">
+      <img onclick="closeAddTaskMask(${i})" src="assets/img/close.png" alt="close" class="close-cross">
+      <div class="add-task-headline">
         <h2>Add Task</h2>
-        <button class="btn">Create Task <img src="assets/img/white-check.png" alt=""></button>
+        <button class="btn">Create Task <img src="assets/img/white-check.png" alt="create task"></button>
       </div>
 
-      <div class="input-title">
-        <input id="AddTitle" type="text" placeholder="Enter a title" autocomplete="off" required>
+      <div class="input-container">
+        <input id="AddTitle" type="text" placeholder="Enter a title" autocomplete="off" required class="add-task-title">
       </div>
 
       <div id="user_selector">
-        <div class="selector-header"  onclick="showUsers(${i})">
+        <div onclick="showUsers(${i})" class="selector-header">
           Select contacts to assign
-          <img class="selectorArrow" src="assets/img/blue-dropdown-arrow.png" alt="">
+          <img  src="assets/img/blue-dropdown-arrow.png" alt="select contact">
         </div>
       </div>
 
-      <div class="selector-user-dropdown" id="selector_user_dropdown">  </div>
+      <div id="selector_user_dropdown"></div>
       <div id="selector_user_dropdown_contact" class="display-flex-in-addtask"></div>
 
-      <div class="input border-bottom" style="display:flex; flex-direction: column; align-items:flex-start;">
-        <h4>Due Date</h4>
-        <div class= "input-date" id="input-date">
-          <input id="add-date" class="add-date" placeholder="dd/mm/yy" type="date" required>
-        </div>
+      <h4>Due Date</h4>
+      <div class="input-container">
+          <input id="add-date" class="add-task-due-date" placeholder="dd/mm/yy" type="date" required>
       </div>
 
-      <h4>Category</h4>  <div class="d-none" class="category-alert" id="chooseCategory">This field is required</div>      
+      <h4>Category</h4>  
+      <div id="chooseCategory" class="alert display-none">This field is required</div>      
       <div id="category_selector">
         <div id="selected_category" class="selector-header" onclick="showTaskCategories()">
           Select task category
-          <img class="selectorArrow" src="assets/img/blue-dropdown-arrow.png" alt="">
+          <img  src="assets/img/blue-dropdown-arrow.png" alt="">
         </div>
       </div>
+      <div id="selector_Category_Dropdown"></div>
 
-      <div class="selector-Category-Dropdown" id="selector_Category_Dropdown"></div>
-      <span id="chossePriority" class="d-none">This field is required</span>
+      <span id="chossePriority" class="alert display-none">This field is required</span>
       <div class="priorityContainer">
         <div class="priority-urgent" onclick="selectedPriority(1)" id="priorityUrgent">
           <p>Urgent</p> 
@@ -63,20 +62,16 @@ function openAddTaskHtml(i, taskStatus) {
       <h4>Subtasks</h4>
       <div id="empty_subtask_text"></div>
 
-      <div class="input-subtasks" id="newSubtask_select">
-        <div class="inputUser pointer">
-          <div class="inputfield-new-user">
-            <input class="input border-bottom" id="new_subtask_text" type="text" placeholder="Add new subtask">
-            <div class="checkAndCrossIconsCategory">
-              <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
-              <img src="./assets/img/devider.png">
-              <img src="./assets/img/blue-check.png" onclick="pushSubtasks()" class="blue-check pointer">
-            </div>
-          </div>
+      <div id="newSubtask_select" class="input-container">
+        <input class="input" id="new_subtask_text" type="text" placeholder="Add new subtask">
+        <div class="checkAndCrossIconsCategory">
+          <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
+          <img src="./assets/img/devider.png">
+          <img src="./assets/img/blue-check.png" onclick="pushSubtasks()" class="blue-check pointer">
         </div>
       </div>
 
-    <div class="new-Subtasks" id="addSubtaskCheckbox"></div>
+    <div id="addSubtaskCheckbox"></div>
   </form>
 `;
 }
@@ -87,7 +82,7 @@ function openAddTaskHtml(i, taskStatus) {
  */
 function showInviteNewContact() {
   return /*html*/ `
-    <div class="selectorCell pointer" onclick="openAddContact(1)">
+    <div class="selectorCell" onclick="openAddContact(1)">
       <div>Invite new contact</div>
       <div><img src="./assets/img/newContact-img.png"></div>
     </div>
@@ -103,7 +98,7 @@ function showInviteNewContact() {
  */
 function showContactsDropDown(i, activUserContact, currentUser) {
   return /*html*/`
-  <div onclick="selectedUser('${currentUser.contacts[i]['contactInitials']}', '${currentUser.contacts[i]['contactcolor']}', '${currentUser.contacts[i]['contactName']}')" class="selectorCell pointer">
+  <div onclick="selectedUser('${currentUser.contacts[i]['contactInitials']}', '${currentUser.contacts[i]['contactcolor']}', '${currentUser.contacts[i]['contactName']}')" class="selectorCell">
       <div>${activUserContact[i].contactName}</div>
       <div><img id="user_select${currentUser.contacts[i]['contactInitials']}${currentUser.contacts[i]['contactcolor']}${currentUser.contacts[i]['contactName']}" src="./assets/img/userSelect-img.png"></div>
   </div>
@@ -118,7 +113,7 @@ function showSelectCategory(category, color) {
         ${category}
         <img src="./assets/img/${color}.png" />
       </div>
-      <img class="selectorArrow" src="assets/img/blue-dropdown-arrow.png" alt="">
+      <img  src="assets/img/blue-dropdown-arrow.png" alt="">
     </div>
   `;
 }
@@ -126,7 +121,7 @@ function showSelectCategory(category, color) {
 
 function showNewCategory() {
   return /*html*/`
-    <div onclick="changeInputCategory()" class="selectorCell pointer">
+    <div onclick="changeInputCategory()" class="selectorCell">
        <div>New category</div>
          <div class="selectorCellColor"><img src=""></div>
        </div>
@@ -137,7 +132,7 @@ function showNewCategory() {
 
 function showExistingCategories(staticCategorys) {
   return /*html*/`  
-    <div onclick="selectedCategory('${staticCategorys['taskCategory']}','${staticCategorys['taskColor']}')" class="selectorCell pointer">
+    <div onclick="selectedCategory('${staticCategorys['taskCategory']}','${staticCategorys['taskColor']}')" class="selectorCell">
       <div>${staticCategorys['taskCategory']}
       </div>
 
@@ -150,10 +145,10 @@ function showExistingCategories(staticCategorys) {
 
 function showChangeInputCategory() {
   return /*html*/`
-    <div class="inputCategory">
-      <div id="alert_message"></div>
+    <div>
+      <div id="alert_message" class="alert"></div>
         <div class="inputfield-new-category">
-          <input class="input border-bottom" id="input-new-category" type="text" placeholder="New category name" required>
+          <input class="input" id="input-new-category" type="text" placeholder="New category name" required>
           <div class="checkAndCrossIconsCategory">
               <img src="./assets/img/blue-cross.png" onclick="exitCategoryInput()" class="blue-cross pointer">
               <img src="./assets/img/devider.png">
@@ -176,10 +171,10 @@ function showChangeInputCategory() {
 function showExitCategoryInput() {
   return /*html*/`
     <div id="selected_category" class="selector-header pointer" onclick="showTaskCategories()">
-      Select task category   <img class="selectorArrow" src="assets/img/blue-dropdown-arrow.png">
+      Select task category   <img  src="assets/img/blue-dropdown-arrow.png">
     </div>
 
-    <div class="selector-Category-Dropdown" id="selector_Category_Dropdown"></div>
+    <div id="selector_Category_Dropdown"></div>
   `;
 }
 

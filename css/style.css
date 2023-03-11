@@ -28,7 +28,12 @@ a:hover {
 }
 
 .btn {
+    height: 60px;
     background-color: var(--color-blue-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     padding: 8px 16px;
     border: none;
     border-radius: 10px;
@@ -75,9 +80,9 @@ a:hover {
     color: #d1d1d1;
 }
 
-.border-bottom {
+/* .border-bottom {
     border-bottom: var(--border);
-}
+} */
 
 .display-none {
     display: none !important;
@@ -286,6 +291,7 @@ a:hover {
 
     .btn,
     .btn-light {
+        height: 50px;
         font-size: var(--font-size-regular);
     }
 

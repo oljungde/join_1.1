@@ -28,15 +28,15 @@ function renderAllContact() {
 function openAddContact(mo) {
     if (mo == 1) {
         let addcontact = document.getElementById('AddTaskMaskContact');
-        addcontact.classList.remove('d-none');
+        addcontact.classList.remove('display-none');
         let editTaskForm = document.getElementById('detail_content');
-        editTaskForm.classList.add('d-none');
+        editTaskForm.classList.add('display-none');
         addcontact.innerHTML = '';
         addcontact.innerHTML = addNewContactHtml(mo);
     }
     else if (mo == 0) {
         let addcontact = document.getElementById('opencontact');
-        addcontact.classList.remove('d-none');
+        addcontact.classList.remove('display-none');
         addcontact.innerHTML = '';
         addcontact.innerHTML = addNewContactHtml(mo);
     }
@@ -49,14 +49,14 @@ function openAddContact(mo) {
 function closeAddContact(mo) {
     if (mo == 0) {
         let addcontact = document.getElementById('opencontact');
-        addcontact.classList.add('d-none');
+        addcontact.classList.add('display-none');
         addcontact.innerHTML = '';
     }
     else if (mo == 1) {
         let addtask = document.getElementById('AddTaskMaskContact');
-        addtask.classList.add('d-none');
+        addtask.classList.add('display-none');
         let editTaskForm = document.getElementById('detail_content');
-        editTaskForm.classList.remove('d-none');
+        editTaskForm.classList.remove('display-none');
         addtask.innerHTML = '';
     }
 }
@@ -66,7 +66,7 @@ function closeAddContact(mo) {
  * hides the overlay to add a contact
  */
 function hideAddContacts() {
-    document.getElementById('opencontact').classList.add("d-none");
+    document.getElementById('opencontact').classList.add("display-none");
 }
 
 
@@ -157,7 +157,7 @@ function checkEmailInArray(contactTask,) {
 // email already taken appears
 function checkEmail() {
     let emaildone = document.getElementById('emailDone');
-    emaildone.classList.remove('d-none');
+    emaildone.classList.remove('display-none');
 }
 
 
@@ -194,9 +194,9 @@ async function saveLetterContact(letter) {
 
 // save contact popup
 function popupContactSave() {
-    document.getElementById('popup-ContactBar').classList.remove('d-none');
+    document.getElementById('popup-ContactBar').classList.remove('display-none');
     setTimeout(() => {
-        document.getElementById('popup-ContactBar').classList.add('d-none');
+        document.getElementById('popup-ContactBar').classList.add('display-none');
     }, 1100);
 }
 
@@ -281,7 +281,7 @@ function changeColorInContact(index) {
 function editContact(index, lettersFB) {
     let contact = currentUser.contacts[index];
     let editcontact = document.getElementById('opencontact');
-    editcontact.classList.remove('d-none');
+    editcontact.classList.remove('display-none');
     editcontact.innerHTML = '';
     editcontact.innerHTML = editContactHtml(contact, lettersFB, index);
     document.getElementById('contactEditName').value = contact['contactName'];
@@ -432,7 +432,7 @@ function getUserIndexForEmail(email) {
 function OpenContactAddTask(i, index) {
     savecontactforaddtask = index;
     let openaddtask = document.getElementById('openContactAddtask');
-    document.getElementById('openContactAddtaskBG').classList.remove('d-none');
+    document.getElementById('openContactAddtaskBG').classList.remove('display-none');
     let taskStatus = 'toDo';
     openaddtask.innerHTML = openAddTaskHtml(i, taskStatus);
     getToday();

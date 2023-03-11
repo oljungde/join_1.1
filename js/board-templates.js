@@ -6,7 +6,7 @@
 function generateTodoHTML(element) {
     return /*html*/`
     <div onclick="checkDevice()" draggable="true" ondragstart="startDragging(${element['id']})" class="todo" id="${element['id']}">
-        <div id="task-menu-${element.id}" class="task-menu d-none">
+        <div id="task-menu-${element.id}" class="task-menu display-none">
             <div ontouchstart="showDetailWindow(${element.id})" class="task-menu-edit">Edit</div>
             <div id="touch-move-${element.id}" class="task-menu-move">Move to:</div>
         </div>
@@ -50,7 +50,7 @@ function progressBarTemplate(taskId) {
  */
 function dropTemplateHTML(status) {
     return /*html*/ `
-        <div id="drop_template_${status}" class="drag-template d-none"></div>
+        <div id="drop_template_${status}" class="drag-template display-none"></div>
     `;
 }
 
@@ -150,10 +150,10 @@ function changeTaskTemplate(id) {
             <div id="user_selector">
                 <div class="selector-header" onclick="showUsers(${currentTask.id})">
                     Select contacts to assign
-                    <img class="selectorArrow" src="assets/img/blue-dropdown-arrow.png" alt="">
+                    <img  src="assets/img/blue-dropdown-arrow.png" alt="">
                 </div>
             </div>
-            <div class="selector-user-dropdown" id="selector_user_dropdown"></div>
+            <div  id="selector_user_dropdown"></div>
             <div id="selector_user_dropdown_contact" class="display-flex-in-addtask"></div>
 
             <div class="detail-subTasks" id="edit_subTasks2">

@@ -192,7 +192,7 @@ function allowDrop(ev) {
     let dragTemplates = document.querySelectorAll('.drag-template');
     dragTemplates.forEach(dragTemplate => {
         dragTemplate.classList.add('drag-template-start');
-        dragTemplate.classList.remove('d-none');
+        dragTemplate.classList.remove('display-none');
     });
 }
 
@@ -252,9 +252,9 @@ function onlyClick(eve, taskContainer) {
  */
 function showTaskTouchMenu(id) {
     let taskMenu = document.getElementById(`task-menu-${id}`);
-    taskMenu.classList.remove('d-none');
+    taskMenu.classList.remove('display-none');
     setTimeout(() => {
-        taskMenu.classList.add('d-none');
+        taskMenu.classList.add('display-none');
     }, 3000);
 }
 
@@ -281,14 +281,14 @@ async function touchMoveTask(id, moveTo) {
  * @param {number} id is the uniqe id from the array entry of the task
  */
 function showDetailWindow(id) {
-    let detailContainer = document.getElementById('AddTaskMaskBg');
+    let detailContainer = document.getElementById('add-task-overlay');
     let detailContent = document.getElementById('detail_content');
-    document.getElementById('AddTaskMaskContainer').classList.add('d-none');
+    document.getElementById('add-task-container').classList.add('display-none');
     for (let filteredTasksIndex = 0; filteredTasksIndex < filteredTasks.length; filteredTasksIndex++) {
         currentTask = filteredTasks[filteredTasksIndex];
         if (currentTask.id == id) {
-            detailContent.classList.remove('d-none');
-            detailContainer.classList.remove('d-none');
+            detailContent.classList.remove('display-none');
+            detailContainer.classList.remove('display-none');
             detailContent.innerHTML = detailContentTemplate();
             renderAssignedContactsDetails();
             renderAssignedSubTasks(id);
@@ -516,7 +516,7 @@ function newSubTask(id) {
 
 /**
  * get the new subtask an push it to the right task
- * @param {string} newSubTaskText ist the content od the new subtask
+ * @param {string} newSubTaskText is the content od the new subtask
  * @param {string} emptySubTaskText is the text to show if the content of the new subtask is empty
  * @param {number} id is the id of the task to add a new subtask
  */
@@ -605,7 +605,7 @@ async function saveDeletetTask() {
 function closeDetailTask() {
     userSelect = [];
     document.getElementById('detail_content').innerHTML = '';
-    document.getElementById('detail_container').classList.add('d-none');
+    document.getElementById('detail_container').classList.add('display-none');
     filterTasksByStatus();
     checkDevice();
 }
@@ -616,10 +616,10 @@ function closeDetailTask() {
  */
 function hideAddTaskMask() {
     setTimeout(() => {
-        document.getElementById("AddTaskMaskBg").classList.add("d-none");
-        document.getElementById("detail_container").classList.add("d-none");
-        document.getElementById('AddTaskMaskContact').classList.add("d-none");
-        document.getElementById('AddTaskMaskContact').classList.add("d-none");
+        document.getElementById("add-task-overlay").classList.add("display-none");
+        // document.getElementById("detail_container").classList.add("display-none");
+        document.getElementById('AddTaskMaskContact').classList.add("display-none");
+        document.getElementById('AddTaskMaskContact').classList.add("display-none");
     }, 250);
     handleFilterTasks();
     checkDevice();

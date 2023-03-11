@@ -118,7 +118,7 @@ function addNewContactHtml(mo) {
                             <img src="./assets/img/login-email.png" alt="">
                         </div>
 
-                        <div  id="emailDone" class="d-none contact-email-done">This Email already exists</div>
+                        <div  id="emailDone" class="display-none contact-email-done">This Email already exists</div>
 
                         <div class="input-contact">
                             <input placeholder="  Phone" required type="text" id="contactNumber" class="input-contact-name">

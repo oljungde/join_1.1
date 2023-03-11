@@ -16,7 +16,7 @@
     height: calc(100vh - 100px);
 }
 
-.addTaskFormHTML {
+.add-task-formHTML {
     height: calc(100vh - 100px);
     width: 430px;
     position: relative;
@@ -24,25 +24,25 @@
     overflow: auto;
 }
 
-.addTaskFormHTML::-webkit-scrollbar {
+.add-task-formHTML::-webkit-scrollbar {
     width: 5px;
 }
 
-.addTaskFormHTML::-webkit-scrollbar-track {
+.add-task-formHTML::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
 }
 
-.addTaskFormHTML::-webkit-scrollbar-thumb {
+.add-task-formHTML::-webkit-scrollbar-thumb {
     background: lightgrey;
     border-radius: 4px;
 }
 
-.addTaskFormHTML::-webkit-scrollbar-thumb:hover {
+.add-task-formHTML::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
-.addTaskFormHTML h4 {
+.add-task-formHTML h4 {
     margin-bottom: 10px;
     margin-top: 15px;
 }
@@ -101,7 +101,7 @@
     display: flex;
     align-items: center;
     column-gap: 8px;
-    padding: 5px;
+    padding: 8px 24px;
 }
 
 .subtasks-trash {
@@ -170,7 +170,7 @@
 
 @media (max-width: 456px) {
 
-    .addTaskFormHTML {
+    .add-task-formHTML {
         width: 100%;
     }
 
