@@ -42,19 +42,17 @@
         <div class="sidebar" w3-include-html="./assets/templates/navigation.html"></div>
 
         <div class="main-content">
-            <div class="topBar">
-                <div class="InputAndButton">
-                    <div class="search-task-container">
-                        <div class="input-wrapper">
-                            <input class="search-input" id="search_input" type="text" placeholder="Find Task" onkeyup="handleFilterTasks()">
-                            <div class="search-icon-wrapper">
-                                <div class="vector"></div>
-                                <img src="assets/img/searchglas.png">
-                            </div>
+            <div>
+                <div class="search-bar">
+                    <div class="search">
+                        <input id="search_input" type="text" placeholder="Find Task" onkeyup="handleFilterTasks()">
+                        <div>
+                            <img src="assets/img/searchglas.png">
                         </div>
                     </div>
-                    <button onclick="openAddTaskMask(1, 'toDo')" class="addTaskButton">
-                        <p>Add Task</p> <img src="assets/img/white-plus.png" alt="">
+
+                    <button onclick="openAddTaskMask(1, 'toDo')" class="btn">
+                        Add Task <img src="assets/img/white-plus.png" alt="">
                     </button>
                 </div>
             </div>
