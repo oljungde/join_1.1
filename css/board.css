@@ -301,7 +301,7 @@ h3 {
     bottom: 0;
     display: flex;
     flex-direction: column;
-    padding: 64px 32px 32px;
+    padding: 72px 32px 32px;
     border-radius: 30px 0px 0px 30px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     overflow-y: scroll;
@@ -312,7 +312,7 @@ h3 {
     height: 22px;
     position: absolute;
     right: 32px;
-    top: 16px;
+    top: 32px;
     cursor: pointer;
 }
 
@@ -517,22 +517,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-items: center;
 } */
 
-.subtaskList {
-    display: flex;
-    gap: 10px;
-    padding: 5px;
-}
-
 .Detail {
-    width: 623px;
     height: 80vh;
+    width: 620px;
     background-color: white;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 30px;
-    padding: 50px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
+    padding: 48px;
+    border-radius: 24px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     overflow: auto;
 }
 
@@ -545,69 +539,52 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 200px;
 }
 
-.detail-title {
-    margin: 0;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 61px;
-    line-height: 120%;
-    margin-bottom: 20px;
-    margin-top: 20px;
+.Detail h2 {
+    margin: 8px 0 32px;
+    font-size: var(--font-size-xxxlarge);
 }
 
 .detail-text {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
+    margin-bottom: 24px;
     color: black;
 }
 
-.detail-dueDate {
+.detail-entry {
     display: flex;
     align-items: center;
     gap: 20px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
+    margin-bottom: 24px;
+    font-size: var(--font-size-large);
 }
 
-.detail-dueDate p {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
+.detail-entry h4 {
+    margin: 0;
 }
 
-.detail-priority {
+.detail-assigned {
+    margin-bottom: 24px;
+    font-size: var(--font-size-large);
+}
+
+.detail-assigned h4 {
+    margin: 0 0 16px;
+}
+
+.detail-assigned div {
+    font-size: var(--font-size-regular);
+}
+
+.detail-contact {
     display: flex;
     align-items: center;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
+    margin: 8px;
     gap: 20px;
 }
 
-.detail-assignedTo {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-}
-
-.detail-assignedTo p {
+.subtaskList {
     display: flex;
-    flex-direction: column;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-}
-
-.crossed-out {
-    text-decoration: line-through;
+    gap: 10px;
+    padding: 5px;
 }
 
 .detail-subTasks p {
@@ -617,22 +594,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .detail-subTasks {
     display: flex;
     flex-direction: column;
-    font-style: normal;
-    gap: 5px;
-    padding-top: 15px;
-    padding-left: 5px;
+    gap: 8px;
 }
 
-.CloseCross-DetailTask {
-    width: 21.65px;
-    height: 21.65px;
-    position: absolute;
-    right: 42px;
-    top: 42px;
+.detail-subTasks h4 {
+    margin-bottom: 8px;
+    font-size: var(--font-size-large);
 }
 
-.CloseCrossDetailTask:hover {
-    cursor: pointer;
+.crossed-out {
+    text-decoration: line-through;
 }
 
 .DetailTitle {
@@ -693,13 +664,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 86px;
     height: 61px;
     font-size: 23px;
-}
-
-.detailforcontactintask {
-    display: flex;
-    align-items: center;
-    margin: 5px;
-    gap: 20px;
 }
 
 @media (max-width: 1440px) {
@@ -778,11 +742,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         padding: 32px 32px;
     }
 
-    .CloseCross-DetailTask {
-        top: 26px;
-        right: 26px;
-    }
-
     .add-task-container {
         width: 100%;
         align-items: center;
@@ -814,26 +773,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         flex-direction: column;
         align-items: flex-start;
         row-gap: 16px;
-    }
-
-    .Detail h5 {
-        margin: 20px 0;
-    }
-
-    .detail-title {
-        font-size: 40px;
-    }
-
-    .detail-text {
-        font-size: 18px;
-    }
-
-    .detail-assignedTo {
-        font-size: 18px;
-    }
-
-    .detail-dueDate p {
-        font-size: 18px;
     }
 
     .priorityContainer {

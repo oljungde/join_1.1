@@ -72,34 +72,34 @@ function touchMenuEntryHTML(element, currentTaskState, i) {
  */
 function detailContentTemplate() {
     return /*html*/`
-        <img class="CloseCross-DetailTask pointer" onclick="hideAddTaskMask()" src="assets/img/group 11.png" alt="">
-        <div class="detail-category ${currentTask.category.TaskColor}">
+        <img class="close-cross" onclick="hideAddTaskMask()" src="assets/img/close.png" alt="Close">
+        <button class="detail-category ${currentTask.category.TaskColor}">
             ${currentTask.category.Category}
-        </div>
+        </button>
 
         <h2 class="detail-title">${currentTask.title}</h2>
         <div class="detail-text">
             ${currentTask.description}
         </div>
 
-        <div class="detail-dueDate"> 
-            <h5>Due date:</h5>  
-            <p>${currentTask.dueDate}</p>
+        <div class="detail-entry"> 
+            <h4>Due date:</h4>  
+            ${currentTask.dueDate}
         </div>
 
-        <div class="detail-priority">
-            <h5> Priority:</h5> 
+        <div class="detail-entry">
+            <h4> Priority:</h4> 
             <img src="assets/img/detail-prio-${currentTask.priority}.png" alt="">
         </div>
 
-        <div class="detail-assignedTo"> 
-            <h5>Assigned To:</h5> 
+        <div class="detail-assigned"> 
+            <h4>Assigned To:</h4> 
             <div id="detail_assigned_contacts"></div> 
         </div>
 
         <img id="edit_button" class="edit-button pointer" src="assets/img/edit-button.png" onclick="changeTask(${currentTask.id})">
         <div class="detail-subTasks" id="detail_subTasks">
-            <h5>Subtasks:</h5>
+            <h4>Subtasks:</h4>
         </div>
     `;
 }

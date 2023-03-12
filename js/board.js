@@ -307,7 +307,7 @@ function renderAssignedContactsDetails() {
         let color = currentTask.user[assignedContactsIndex]['concolor'];
         let name = currentTask.user[assignedContactsIndex]['contactname'];
         detailAssignedContacts.innerHTML +=/*html*/ `
-        <div class="detailforcontactintask">
+        <div class="detail-contact">
         <div style="background-color: ${color}" class="user">${letter}</div>
         <div>${name}</div>
         </div>
