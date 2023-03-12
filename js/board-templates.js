@@ -112,10 +112,10 @@ function detailContentTemplate() {
 function changeTaskTemplate(id) {
     return /*html*/`
         <form onsubmit="saveChangedTask(${currentTask.id}); return false;" class="editTask">
-            <img class="CloseCross-DetailTask pointer" onclick="hideAddTaskMask()" src="assets/img/group 11.png" alt="">
+            <img class="close-cross" onclick="hideAddTaskMask()" src="assets/img/close.png" alt="">
         
-            <div class="input-title">
-                <input id="changed_title" type="text" value="${currentTask.title}" autocomplete="off" required>
+            <div class="input-container">
+                <input id="changed_title" type="text" value="${currentTask.title}" autocomplete="off" required class="add-task-title">
             </div>
 
             <div>
@@ -123,22 +123,22 @@ function changeTaskTemplate(id) {
                 <textarea class="add-description" id="changed_description" placeholder="Enter a Description">${currentTask.description.replace(/<br\s*\/?>/ig, "")}</textarea>
             </div>
 
-            <div class="input border-bottom" style="display:flex; flex-direction: column; align-items:flex-start;">
-                <h4>Due Date</h4>
-                <div class= "input-date" id="input-date">
-                    <input id="add-date" class="add-date" value="${currentTask.dueDate}" type="date">
-                </div>
+            <h4>Due Date</h4>
+            <div class="input-container">
+                <input id="add-date" class="add-task-due-date" value="${currentTask.dueDate}" type="date">
             </div>
 
             <div class="priorityContainer">
-                    <div class="priority-urgent" onclick="editSelectedPriority(1)" id="editPriorityUrgent">
-                        <p>Urgent</p> 
-                        <img id="editPriorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
-                    </div>
+                <div class="priority-urgent" onclick="editSelectedPriority(1)" id="editPriorityUrgent">
+                    <p>Urgent</p> 
+                    <img id="editPriorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
+                </div>
+
                 <div class="priority-medium" id="editPriorityMedium" onclick="editSelectedPriority(2)">
                     <p>Medium</p> 
                     <img id="editPriorityMediumImg" src="assets/img/prio-medium.png" alt="">
                 </div>
+                
                 <div class="priority-low" id="editPriorityLow" onclick="editSelectedPriority(3)">
                     <p>Low</p> 
                     <img id="editPriorityLowImg" src="assets/img/prio-low.png" alt="">
@@ -152,27 +152,25 @@ function changeTaskTemplate(id) {
                 </div>
             </div>
             <div  id="selector_user_dropdown"></div>
-            <div id="selector_user_dropdown_contact" class="display-flex-in-addtask"></div>
+            <div id="selector_user_dropdown_contact" class="contacts-in-task"></div>
 
+            <h4>Subtasks:</h4>
             <div class="detail-subTasks" id="edit_subTasks2">
-                <h4>Subtasks:</h4>
-                <div id="empty_subtask_text">
-          
-                </div>
-                <div class="inputUser pointer">
-                    <div class="inputfield-new-user">
-                        <input class="input border-bottom" id="new_subtask_text" type="text" placeholder="Add new subtask">
-                        <div class="checkAndCrossIconsCategory">
-                            <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
-                            <img src="./assets/img/devider.png">
-                            <img src="./assets/img/blue-check.png" onclick="newSubTask(${id})" class="blue-check pointer">
-                        </div>
+                <div id="empty_subtask_text"></div>
+
+                <div class="input-container">
+                    <input class="input border-bottom" id="new_subtask_text" type="text" placeholder="Add new subtask">
+                    <div class="checkAndCrossIconsCategory">
+                        <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
+                        <img src="./assets/img/devider.png">
+                        <img src="./assets/img/blue-check.png" onclick="newSubTask(${id})" class="blue-check pointer">
                     </div>
                 </div>
                 <div class="new-Subtasks" id="edit_subTasks">
   
                 </div>
             </div>
+
             <div class="task-edit-btns">
                 <div onclick="deleteTask(${currentTask.id})" class="btn trash-button"><img class="trash" src="assets/img/trash.ico" alt=""></div>
                 <button class="btn ok">Ok <img src="assets/img/white-check.png" alt=""></button>
@@ -208,7 +206,7 @@ function renderAssignedSubTasksTemplate(currentSubTask, assignedSubTaskIndex, id
  */
 function editShowSubTasksTemplate(currentSubTask, assignedSubTaskIndex, id) {
     return /*html*/ `
-        <div id="${assignedSubTaskIndex}" class="subtaskList" >  
+        <div id="${assignedSubTaskIndex}" class="subtasks" >  
           <input id="subTask_${assignedSubTaskIndex}" onchange="setSubTaskDone(${id})" class="subtaskCheckbox pointer" type="checkbox">
           <span id="subTask_title_${assignedSubTaskIndex}">${currentSubTask.title}</span>
           <img src="./assets/img/trash-blue.png" onclick="deleteSubTask(${id}, ${assignedSubTaskIndex})" class="subtasks-trash" alt="trash"> 

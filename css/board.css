@@ -503,21 +503,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     translate: -50%;
 }
 
-/* Style for the onclick Detail Container */
-/* .DetailContainer {
-    z-index: 100;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(211, 211, 211, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-.Detail {
+.detail {
     height: 80vh;
     width: 620px;
     background-color: white;
@@ -531,7 +517,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 
-.Detail::-webkit-scrollbar {
+.detail::-webkit-scrollbar {
     display: none;
 }
 
@@ -539,7 +525,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 200px;
 }
 
-.Detail h2 {
+.detail h2 {
     margin: 8px 0 32px;
     font-size: var(--font-size-xxxlarge);
 }
@@ -581,24 +567,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     gap: 20px;
 }
 
-.subtaskList {
-    display: flex;
-    gap: 10px;
-    padding: 5px;
-}
-
-.detail-subTasks p {
-    margin: 0;
+.edit-contact-list {
+    margin-bottom: 24px;
 }
 
 .detail-subTasks {
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .detail-subTasks h4 {
-    margin-bottom: 8px;
+    margin: 0 0 8px;
     font-size: var(--font-size-large);
 }
 
@@ -606,36 +585,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-decoration: line-through;
 }
 
-.DetailTitle {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 61px;
-    line-height: 120%;
-}
-
-.Detail form {
+.detail form {
     width: 412px;
 }
 
-.Detail form h5 {
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 120%;
-    color: #000000;
-}
-
-.Detail form h4 {
-    margin-bottom: 5px;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
+.detail form h4 {
+    margin: 0 0 8px;
+    font-size: var(--font-size-large);
     color: #42526E;
-}
-
-.edit-button {
-    position: absolute;
-    bottom: 24px;
-    right: 41px;
 }
 
 .task-edit-btns {
@@ -645,6 +602,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.edit-button {
+    position: absolute;
+    bottom: 24px;
+    right: 41px;
 }
 
 .trash-button {
@@ -663,7 +626,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .ok {
     width: 86px;
     height: 61px;
-    font-size: 23px;
+    font-size: var(--font-size-xxlarge);
 }
 
 @media (max-width: 1440px) {
@@ -695,11 +658,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @media (max-width: 768px) {
-    .Detail {
+    .detail {
         width: 80vw;
     }
 
-    .Detail form {
+    .detail form {
         width: 100%;
     }
 
@@ -737,7 +700,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         width: 100%;
     }
 
-    .Detail {
+    .detail {
         width: 90vw;
         padding: 32px 32px;
     }
@@ -789,11 +752,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .priority-low {
         width: 120px;
         margin-bottom: 12px;
-    }
-
-    .user {
-        height: 39px;
-        width: 39px;
     }
 
     .task-added-to-board {

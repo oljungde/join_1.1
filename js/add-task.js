@@ -227,7 +227,7 @@ function showUsers(contact) {
     }
   }
   else {
-    showSelectedContactBubbles()
+    showSelectedContactBubbles();
   }
 }
 
@@ -239,7 +239,7 @@ function showSelectedContactBubbles() {
   document.getElementById('selector_user_dropdown').innerHTML = ``;
   for (let i = 0; i < userSelect.length; i++) {
     document.getElementById('selector_user_dropdown_contact').innerHTML += `
-        <div style="background-color:${userSelect[i]['concolor']}" class="user">${userSelect[i]['contactInitials']}</div>
+        <div style="background-color:${userSelect[i]['concolor']}" class="user edit-contact-list">${userSelect[i]['contactInitials']}</div>
       `;
   }
   selectorcontactIndex--;
