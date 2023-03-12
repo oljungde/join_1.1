@@ -25,24 +25,24 @@
 </head>
 
 <body onload="initAddTask()">
-    <div class="overlay-header" id="overlay_header">
+    <div id="overlay_header" class="overlay-header">
         <a href="./summary.html"><img src="./assets/img/logo-blue.png" alt="Join Logo"></a>
         <div class="header-right"></div>
     </div>
 
-    <div class="mainheader" w3-include-html="./assets/templates/header.html"></div>
+    <div w3-include-html="./assets/templates/header.html" class="mainheader"></div>
 
     <div class="Main-Container">
-        <div class="sidebar" w3-include-html="./assets/templates/navigation.html"></div>
+        <div w3-include-html="./assets/templates/navigation.html" class="sidebar"></div>
 
         <div class="main-content add-task-content">
-            <form class="add-task-formHTML" onsubmit="addToTask(0, 'toDo'); return false; ">
+            <form onsubmit="addToTask(0, 'toDo'); return false;" class="add-task-formHTML">
                 <div class="input-title">
                     <input id="AddTitle" type="text" placeholder="Enter a title" autocomplete="off" required>
                 </div>
 
                 <div id="user_selector">
-                    <div class="selector-header" onclick="showUsers()">
+                    <div onclick="showUsers()" class="selector-header">
                         Select contacts to assign
                         <img src="assets/img/blue-dropdown-arrow.png" alt="">
                     </div>
@@ -52,10 +52,10 @@
 
                 <div id="selector_user_dropdown_contact" class="display-flex-in-addtask"></div>
 
-                <div class="input border-bottom" style="display:flex; flex-direction: column; align-items:flex-start;">
+                <div class="input border-bottom">
                     <h4>Due Date</h4>
-                    <div class="input-date" id="input-date">
-                        <input id="add-date" class="add-date" placeholder="dd/mm/yy" type="date">
+                    <div id="input-date" class="input-date">
+                        <input id="add-date" placeholder="dd/mm/yy" type="date" class="add-date">
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@
                 <div id="chooseCategory" class="display-none">This field is required</div>
 
                 <div id="category_selector">
-                    <div class="selector-header" onclick="showTaskCategories()">
+                    <div onclick="showTaskCategories()" class="selector-header">
                         Select task category
                         <img src="assets/img/blue-dropdown-arrow.png" alt="">
                     </div>
@@ -72,17 +72,17 @@
                 <div id="selector_Category_Dropdown"></div>
 
                 <div class="priorityContainer">
-                    <div class="priority-urgent" onclick="selectedPriority(1)" id="priorityUrgent">
+                    <div onclick="selectedPriority(1)" id="priorityUrgent" class="priority-urgent">
                         <p>Urgent</p>
                         <img id="priorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
                     </div>
 
-                    <div class="priority-medium" id="priorityMedium" onclick="selectedPriority(2)">
+                    <div id="priorityMedium" onclick="selectedPriority(2)" class="priority-medium">
                         <p>Medium</p>
                         <img id="priorityMediumImg" src="assets/img/prio-medium.png" alt="">
                     </div>
 
-                    <div class="priority-low" id="priorityLow" onclick="selectedPriority(3)">
+                    <div id="priorityLow" onclick="selectedPriority(3)" class="priority-low">
                         <p>Low</p>
                         <img id="priorityLowImg" src="assets/img/prio-low.png" alt="">
                     </div>
@@ -90,16 +90,16 @@
 
                 <div>
                     <h4>Description</h4>
-                    <textarea class="add-description" id="AddDescription" placeholder="Enter a Description"></textarea>
+                    <textarea id="AddDescription" placeholder="Enter a Description" class="add-description"></textarea>
                 </div>
 
                 <h4>Subtasks</h4>
                 <div id="empty_subtask_text"></div>
 
-                <div class="input-subtasks pointer" id="newSubtask_select">
+                <div id="newSubtask_select" class="input-subtasks pointer">
                     <div class="inputUser">
                         <div class="inputfield-new-user">
-                            <input class="input border-bottom" id="new_subtask_text" type="text" placeholder="Add new subtask">
+                            <input id="new_subtask_text" type="text" placeholder="Add new subtask" class="input border-bottom">
 
                             <div class="checkAndCrossIconsCategory">
                                 <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
@@ -109,7 +109,7 @@
                         </div>
                     </div>
 
-                    <div class="new-Subtasks" id="addSubtaskCheckbox"></div>
+                    <div id="addSubtaskCheckbox" class="new-Subtasks"></div>
                 </div>
 
                 <div class="addTask-bottom">

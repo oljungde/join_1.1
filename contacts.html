@@ -25,10 +25,10 @@
 </head>
 
 <body onload="initContacts()" class="overflow-hidden">
-    <div class="mainheader" w3-include-html="./assets/templates/header.html"></div>
+    <div w3-include-html="./assets/templates/header.html" class="mainheader"></div>
 
     <div class="display">
-        <div class="sidebar" w3-include-html="./assets/templates/navigation.html"></div>
+        <div w3-include-html="./assets/templates/navigation.html" class="sidebar"></div>
 
         <div class="contact-main">
             <div id="contactbar" class="contact-bar"></div>
@@ -43,17 +43,17 @@
         </div>
 
         <div class="show-button">
-            <div class="new-contact-button" onclick="openAddContact(0)">New contact <img class="new-contact-button-img" src="./assets/img/contact-member.png" alt=""></div>
+            <div onclick="openAddContact(0)">New contact <img class="new-contact-button-img" src="./assets/img/contact-member.png" alt="" class="new-contact-button"></div>
         </div>
     </div>
 
-    <div class="relative display-none" id="opencontact" onclick="hideAddContacts()"></div>
+    <div id="opencontact" onclick="hideAddContacts()" class="relative display-none"></div>
 
-    <div class="add-task-overlay display-none" id="openContactAddtaskBG">
-        <div class="add-task-container" id="openContactAddtask"></div>
+    <div id="openContactAddtaskBG" class="add-task-overlay display-none">
+        <div id="openContactAddtask" class="add-task-container"></div>
     </div>
 
-    <div id="popup-ContactBar" class="popup-contact-create animationFadeIncontactBottom display-none  ">
+    <div id="popup-ContactBar" class="popup-contact-create animationFadeIncontactBottom display-none">
         <img src="./assets/img/contact-created.png" alt="">
     </div>
 </body>

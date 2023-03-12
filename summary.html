@@ -17,10 +17,10 @@
 </head>
 
 <body onload="initSummary()">
-    <div class="mainheader" w3-include-html="./assets/templates/header.html"></div>
+    <div w3-include-html="./assets/templates/header.html" class="mainheader"></div>
 
     <div class="Main-Container">
-        <div class="sidebar" w3-include-html="./assets/templates/navigation.html"></div>
+        <div w3-include-html="./assets/templates/navigation.html" class="sidebar"></div>
 
         <div class="mainside">
             <div class="flexmid mainmorning">
@@ -35,12 +35,11 @@
 
             <div class="displayflex urgent-todo">
                 <a href="./board.html">
-
                     <div class="tasksurgent flexmid ">
                         <div class="flexcolumn ">
                             <div class="displayflex">
                                 <div>
-                                    <img class="imgurgent" src="./assets/img/Urgent.png" alt="">
+                                    <img src="./assets/img/Urgent.png" alt="" class="imgurgent">
                                 </div>
 
                                 <div id="number_of_tasks_urgent" class="urgentnumber"></div>
@@ -85,7 +84,7 @@
                     <div class="taskbot">
                         <div class="flexaround">
                             <div>
-                                <img class="taskimg" src="./assets/img/board.png" alt="">
+                                <img src="./assets/img/board.png" alt="" class="taskimg">
                             </div>
 
                             <div id="number_of_tasks" class="tasknumber"></div>
@@ -101,7 +100,7 @@
                     <div class="taskbot">
                         <div class="flexaround">
                             <div>
-                                <img class="taskimg" src="./assets/img/In Progress.png" alt="">
+                                <img src="./assets/img/In Progress.png" alt="" class="taskimg">
                             </div>
 
                             <div id="number_of_tasks_in_progress" class="tasknumber"></div>
@@ -117,7 +116,7 @@
                     <div class="taskbot">
                         <div class="flexaround">
                             <div>
-                                <img class="taskimg" src="./assets/img/awaiting-feedback.png" alt="">
+                                <img src="./assets/img/awaiting-feedback.png" alt="" class="taskimg">
                             </div>
 
                             <div id="number_of_tasks_awaiting_feedback" class="tasknumber"></div>
@@ -133,7 +132,7 @@
                     <div class="taskbot">
                         <div class="flexaround">
                             <div>
-                                <img class="taskimg" src="./assets/img/done.png" alt="">
+                                <img src="./assets/img/done.png" alt="" class="taskimg">
                             </div>
 
                             <div id="number_of_tasks_done" class="tasknumber"></div>
