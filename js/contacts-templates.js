@@ -7,23 +7,23 @@
  */
 function contactDetailHtml(contact, lettersFB, index) {
     return /*html*/`
-        <div class="contact-detail-main-side animationFadeInRight" id="${index}">
+        <div id="${index}" class="contact-detail-main-side animationFadeInRight">
             <div class="back-in-media-contact">
                 <img onclick="closeMediaContact(${index})" src="./assets/img/arrow-back.png" alt="">
             </div>
 
             <div class="contact-detail-head">
-                <div style="background-color: ${contact['contactcolor']}" class="contact-detail-big-letter">${lettersFB}</div>
+                <div class="contact-detail-big-letter" style="background-color: ${contact['contactcolor']}" >${lettersFB}</div>
 
                 <div class="contact-detail-name-task">
                     <p class="contact-detail-big-name">${contact['contactName']}</p>
-                    <p class="contact-detail-add-task" onclick="OpenContactAddTask('0', ${index})"><img src="./assets/img/blue-plus.png" alt="">Add Task</p>
+                    <p onclick="OpenContactAddTask('0', ${index})" class="contact-detail-add-task"><img src="./assets/img/blue-plus.png" alt="">Add Task</p>
                 </div>
             </div>
 
             <div class="contact-detail-info-main">
                 <p class="contact-detail-info">Contact Information</p>
-                <p class="contact-detail-edit" onclick="editContact('${index}', '${lettersFB}')"><img class="icon-edit-contact" src="./assets/img/icon_edit_contact.png" alt=""> Edit Contact</p>
+                <p onclick="editContact('${index}', '${lettersFB}')" class="contact-detail-edit" ><img src="./assets/img/icon_edit_contact.png" alt="" class="icon-edit-contact"> Edit Contact</p>
             </div>
 
             <div>
@@ -51,8 +51,8 @@ function contactDetailHtml(contact, lettersFB, index) {
  */
 function contactChildHtml(i, lettersFB, index) {
     return /*html*/`
-        <div class="contact-child-div" onclick="openDetailContact('${index}', '${lettersFB}' )" id="${index}">
-            <div style="background-color: ${i['contactcolor']}" class="contact-child">
+        <div id="${index}"  onclick="openDetailContact('${index}', '${lettersFB}' )" class="contact-child-div">
+            <div class="contact-child" style="background-color: ${i['contactcolor']}">
                 <p>${lettersFB}</p>
             </div>
             
@@ -86,10 +86,10 @@ function contactBarHtml(letter) {
  */
 function addNewContactHtml(mo) {
     return /*html*/`
-        <div class="add-contact animationFadeIn" onclick="doNotClose(event)">
+        <div onclick="doNotClose(event)" class="add-contact animationFadeIn">
             <div class="add-contact-head">
-                <div class="add-contact-cross" >
-                    <img class="img-cross" onclick="closeAddContact(${mo})" src="./assets/img/pngegg.png" alt="">
+                <div class="add-contact-cross">
+                    <img onclick="closeAddContact(${mo})" src="./assets/img/pngegg.png" alt="" class="img-cross" >
                 </div>
 
                 <div class="add-contact-header-info" >           
@@ -109,26 +109,26 @@ function addNewContactHtml(mo) {
                 <form onsubmit="createContact(${mo}); return false;" onreset="closeAddContact(${mo})">
                     <div class="input-add-contact-container">
                         <div class="input-contact">
-                            <input placeholder="  Name" required  type="text" id="contactName" class="input-contact-name">
+                            <input id="contactName" placeholder="Name" required  type="text"  class="input-contact-name">
                             <img src="./assets/img/signup-user.png" alt="">
                         </div>
 
                         <div class="input-contact">
-                            <input placeholder="  Email" required type="email" id="contactEmail" class="input-contact-name">
+                            <input id="contactEmail" placeholder="Email" required type="email"  class="input-contact-name">
                             <img src="./assets/img/login-email.png" alt="">
                         </div>
 
                         <div  id="emailDone" class="display-none contact-email-done">This Email already exists</div>
 
                         <div class="input-contact">
-                            <input placeholder="  Phone" required type="text" id="contactNumber" class="input-contact-name">
+                            <input id="contactNumber" placeholder="Phone" required type="text" class="input-contact-name">
                             <img src="./assets/img/phone.png" alt="">
                         </div>
                     </div>
 
                     <div class="button-container">
-                        <button class="button-cancel" type="reset" >Cancel <img src="./assets/img/cancel.png" alt=""></button>
-                        <button class="button-create" type="submit">Create contact <img src="./assets/img/rithe.png" alt=""></button>
+                        <button type="reset" class="button-cancel">Cancel <img src="./assets/img/cancel.png" alt=""></button>
+                        <button type="submit" class="button-create">Create contact <img src="./assets/img/rithe.png" alt=""></button>
                     </div>
                 </form>
             </div>
@@ -146,42 +146,42 @@ function addNewContactHtml(mo) {
  */
 function editContactHtml(contact, lettersFB, index) {
     return /*html*/`
-        <div class="add-contact animationFadeIn" onclick="doNotClose(event)">
+        <div onclick="doNotClose(event)" class="add-contact animationFadeIn">
             <div class="add-contact-head">
-                <div class="add-contact-cross" onclick="hideAddContacts()">
-                    <img class="img-cross" src="./assets/img/pngegg.png" alt="">
+                <div onclick="hideAddContacts()" class="add-contact-cross">
+                    <img src="./assets/img/pngegg.png" alt="" class="img-cross">
                 </div>
 
-                <div class="add-contact-header-info" >
+                <div class="add-contact-header-info">
                     <div class="add-contact-h">Edit contact</div>                   
                 </div>
             </div>
 
             <div class="add-contact-main">
-                <div style="background-color: ${contact['contactcolor']}" class="contact-detail-big-letter">
+                <div class="contact-detail-big-letter" style="background-color: ${contact['contactcolor']}">
                     <p>${lettersFB}</p>
                 </div>
                 <form onsubmit="invEditContact('${contact['contactEmail']}', '${index}', '${lettersFB}'); return false">
                     <div>
                         <div class="input-contact">
-                            <input  required  type="text" id="contactEditName" class="input-contact-name">
+                            <input id="contactEditName" required  type="text" class="input-contact-name">
                             <img src="./assets/img/signup-user.png" alt="">
                         </div>
 
                         <div class="input-contact">
-                            <input  required type="email" id="contactEditEmail" class="input-contact-name">
+                            <input id="contactEditEmail" required type="email" class="input-contact-name">
                             <img src="./assets/img/login-email.png" alt="">
                         </div>
 
                         <div class="input-contact">
-                            <input required type="text" id="contactEditNumber" class="input-contact-name">
+                            <input id="contactEditNumber" required type="text" class="input-contact-name">
                             <img src="./assets/img/phone.png" alt="">
                         </div>
                     </div>
 
                     <div class="button-container">
-                        <button class="button-cancel" type="button" onclick="deleteContacts(${index})">Delete <img src="./assets/img/cancel.png" alt=""></button>
-                        <button class="button-create" type="submit">Save <img src="./assets/img/rithe.png" alt=""></button>
+                        <button type="button" onclick="deleteContacts(${index})" class="button-cancel">Delete <img src="./assets/img/cancel.png" alt=""></button>
+                        <button type="submit">Save <img src="./assets/img/rithe.png" alt="" class="button-create"></button>
                     </div>
                 </form>
             </div>

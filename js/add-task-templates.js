@@ -29,7 +29,7 @@ function openAddTaskHtml(i, taskStatus) {
       <h4>Category</h4>  
       <div id="chooseCategory" class="alert display-none">This field is required</div>      
       <div id="category_selector">
-        <div id="selected_category" class="selector-header" onclick="showTaskCategories()">
+        <div id="selected_category" onclick="showTaskCategories()" class="selector-header">
           Select task category
           <img  src="assets/img/blue-dropdown-arrow.png" alt="">
         </div>
@@ -38,17 +38,17 @@ function openAddTaskHtml(i, taskStatus) {
 
       <span id="chossePriority" class="alert display-none">This field is required</span>
       <div class="priorityContainer">
-        <div class="priority-urgent" onclick="selectedPriority(1)" id="priorityUrgent">
+        <div id="priorityUrgent" onclick="selectedPriority(1)" class="priority-urgent" >
           <p>Urgent</p> 
           <img id="priorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
         </div>
 
-        <div class="priority-medium" id="priorityMedium" onclick="selectedPriority(2)">
+        <div id="priorityMedium" onclick="selectedPriority(2)" class="priority-medium" >
           <p>Medium</p> 
           <img id="priorityMediumImg" src="assets/img/prio-medium.png" alt="">
         </div>
 
-        <div class="priority-low" id="priorityLow" onclick="selectedPriority(3)">
+        <div id="priorityLow" onclick="selectedPriority(3)" class="priority-low">
           <p>Low</p> 
           <img id="priorityLowImg" src="assets/img/prio-low.png" alt="">
         </div>
@@ -56,14 +56,14 @@ function openAddTaskHtml(i, taskStatus) {
 
       <h4>Description</h4>
       <div>
-        <textarea class="add-description" id="AddDescription" type="text" placeholder="Enter a Description"></textarea>
+        <textarea id="AddDescription" type="text" placeholder="Enter a Description" class="add-description" ></textarea>
       </div>
 
       <h4>Subtasks</h4>
       <div id="empty_subtask_text"></div>
 
       <div id="newSubtask_select" class="input-container">
-        <input class="input" id="new_subtask_text" type="text" placeholder="Add new subtask">
+        <input id="new_subtask_text" type="text" placeholder="Add new subtask" class="input">
         <div class="checkAndCrossIconsCategory">
           <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
           <img src="./assets/img/devider.png">
@@ -82,7 +82,7 @@ function openAddTaskHtml(i, taskStatus) {
  */
 function showInviteNewContact() {
   return /*html*/ `
-    <div class="selectorCell" onclick="openAddContact(1)">
+    <div onclick="openAddContact(1)" class="selectorCell">
       <div>Invite new contact</div>
       <div><img src="./assets/img/newContact-img.png"></div>
     </div>
@@ -108,7 +108,7 @@ function showContactsDropDown(i, activUserContact, currentUser) {
 
 function showSelectCategory(category, color) {
   return /*html*/`
-    <div class="selector-header pointer" onclick="showTaskCategories()" id="selected_category">
+    <div id="selected_category" onclick="showTaskCategories()" class="selector-header pointer">
       <div class="selected">
         ${category}
         <img src="./assets/img/${color}.png" />
@@ -148,21 +148,21 @@ function showChangeInputCategory() {
     <div>
       <div id="alert_message" class="alert"></div>
         <div class="inputfield-new-category">
-          <input class="input" id="input-new-category" type="text" placeholder="New category name" required>
+          <input id="input-new-category" type="text" placeholder="New category name" required class="input">
           <div class="checkAndCrossIconsCategory">
-              <img src="./assets/img/blue-cross.png" onclick="exitCategoryInput()" class="blue-cross pointer">
+              <img onclick="exitCategoryInput()"  src="./assets/img/blue-cross.png" class="blue-cross pointer">
               <img src="./assets/img/devider.png">
-              <img src="./assets/img/blue-check.png" onclick="addCategory()" id="input-new-category" class="blue-check pointer">
+              <img id="input-new-category" onclick="addCategory()" src="./assets/img/blue-check.png" class="blue-check pointer">
           </div>
         </div>
     
-      <div id="categoryColorCells"style="margin-top: 10px; margin-left: 20px; ">
-        <img onclick="addCategoryColor('lightblueCategory')" class="categoryColor pointer" style="margin-right: 20px;" src="./assets/img/lightblueCategory.png">
-        <img onclick="addCategoryColor('redCategory')" class="categoryColor pointer" style="margin-right: 20px;" src="./assets/img/redCategory.png">
-        <img onclick="addCategoryColor('greenCategory')" class="categoryColor pointer" style="margin-right: 20px;" src="./assets/img/greenCategory.png">
-        <img onclick="addCategoryColor('orangeCategory')" class="categoryColor pointer" style="margin-right: 20px;" src="./assets/img/orangeCategory.png">
-        <img onclick="addCategoryColor('purpleCategory')" class="categoryColor pointer" style="margin-right: 20px;" src="./assets/img/purpleCategory.png">
-        <img onclick="addCategoryColor('blueCategory')" class="categoryColor pointer" src="./assets/img/blue-category.png">
+      <div id="categoryColorCells">
+        <img onclick="addCategoryColor('lightblueCategory')" src="./assets/img/lightblueCategory.png" class="categoryColor pointer">
+        <img onclick="addCategoryColor('redCategory')" src="./assets/img/redCategory.png" class="categoryColor pointer" >
+        <img onclick="addCategoryColor('greenCategory')" src="./assets/img/greenCategory.png" class="categoryColor pointer">
+        <img onclick="addCategoryColor('orangeCategory')" src="./assets/img/orangeCategory.png" class="categoryColor pointer">
+        <img onclick="addCategoryColor('purpleCategory')" src="./assets/img/purpleCategory.png" class="categoryColor pointer">
+        <img onclick="addCategoryColor('blueCategory')" src="./assets/img/blue-category.png" class="categoryColor pointer">
       </div>
     </div>`;
 }
@@ -170,8 +170,8 @@ function showChangeInputCategory() {
 
 function showExitCategoryInput() {
   return /*html*/`
-    <div id="selected_category" class="selector-header pointer" onclick="showTaskCategories()">
-      Select task category   <img  src="assets/img/blue-dropdown-arrow.png">
+    <div id="selected_category" onclick="showTaskCategories()" class="selector-header pointer">
+      Select task category<img src="assets/img/blue-dropdown-arrow.png">
     </div>
 
     <div id="selector_Category_Dropdown"></div>
@@ -188,7 +188,7 @@ function showSubtaskCheckbox(subTask, subTaskIndex) {
   return /*html*/ `
   <div id="subTask_${subTaskIndex}" class="subtasks">
     <span>${subTask.title}</span> 
-    <img src="./assets/img/trash-blue.png" onclick="deleteSubTaskAdd(${subTaskIndex})" class="subtasks-trash" alt="trash"> 
+    <img onclick="deleteSubTaskAdd(${subTaskIndex})"  src="./assets/img/trash-blue.png" alt="trash" class="subtasks-trash"> 
   </div>
 `;
 }

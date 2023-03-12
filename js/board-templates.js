@@ -5,7 +5,7 @@
  */
 function generateTodoHTML(element) {
     return /*html*/`
-    <div onclick="checkDevice()" draggable="true" ondragstart="startDragging(${element['id']})" class="todo" id="${element['id']}">
+    <div id="${element['id']}" onclick="checkDevice()" draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
         <div id="task-menu-${element.id}" class="task-menu display-none">
             <div ontouchstart="showDetailWindow(${element.id})" class="task-menu-edit">Edit</div>
             <div id="touch-move-${element.id}" class="task-menu-move">Move to:</div>
@@ -18,8 +18,8 @@ function generateTodoHTML(element) {
         
         <div id="task_progress_${element['id']}" class="task-progress"></div>
 
-        <div class="user-priority" id="user_and_priority">
-            <div class="contacts-in-task" id="contacts${element['id']}"></div>
+        <div id="user_and_priority" class="user-priority">
+            <div id="contacts${element['id']}" class="contacts-in-task"></div>
             <div class="priority"><img src="assets/img/prio-${element['priority']}.png" alt=""></div>
         </div>
     </div>`;
@@ -34,9 +34,9 @@ function generateTodoHTML(element) {
 function progressBarTemplate(taskId) {
     return /*html*/ `
         <div class="progress-bar">
-            <div class="progress-bar-fill" id="fill${taskId}"></div>
+            <div id="fill${taskId}" class="progress-bar-fill"></div>
         </div>
-        <span class="progress-bar-text" id="fill-text${taskId}"> Done</span>
+        <span id="fill-text${taskId}" class="progress-bar-text"> Done</span>
     `;
 }
 
@@ -72,7 +72,7 @@ function touchMenuEntryHTML(element, currentTaskState, i) {
  */
 function detailContentTemplate() {
     return /*html*/`
-        <img class="close-cross" onclick="hideAddTaskMask()" src="assets/img/close.png" alt="Close">
+        <img onclick="hideAddTaskMask()" src="assets/img/close.png" alt="Close" class="close-cross" >
         <button class="detail-category ${currentTask.category.TaskColor}">
             ${currentTask.category.Category}
         </button>
@@ -97,8 +97,8 @@ function detailContentTemplate() {
             <div id="detail_assigned_contacts"></div> 
         </div>
 
-        <img id="edit_button" class="edit-button pointer" src="assets/img/edit-button.png" onclick="changeTask(${currentTask.id})">
-        <div class="detail-subTasks" id="detail_subTasks">
+        <img id="edit_button" onclick="changeTask(${currentTask.id})" src="assets/img/edit-button.png"  class="edit-button pointer">
+        <div id="detail_subTasks" class="detail-subTasks">
             <h4>Subtasks:</h4>
         </div>
     `;
@@ -112,7 +112,7 @@ function detailContentTemplate() {
 function changeTaskTemplate(id) {
     return /*html*/`
         <form onsubmit="saveChangedTask(${currentTask.id}); return false;" class="editTask">
-            <img class="close-cross" onclick="hideAddTaskMask()" src="assets/img/close.png" alt="">
+            <img onclick="hideAddTaskMask()" src="assets/img/close.png" alt="" class="close-cross">
         
             <div class="input-container">
                 <input id="changed_title" type="text" value="${currentTask.title}" autocomplete="off" required class="add-task-title">
@@ -120,53 +120,53 @@ function changeTaskTemplate(id) {
 
             <div>
                 <h4>Description</h4>
-                <textarea class="add-description" id="changed_description" placeholder="Enter a Description">${currentTask.description.replace(/<br\s*\/?>/ig, "")}</textarea>
+                <textarea id="changed_description" placeholder="Enter a Description" class="add-description" >${currentTask.description.replace(/<br\s*\/?>/ig, "")}</textarea>
             </div>
 
             <h4>Due Date</h4>
             <div class="input-container">
-                <input id="add-date" class="add-task-due-date" value="${currentTask.dueDate}" type="date">
+                <input id="add-date" value="${currentTask.dueDate}" type="date" class="add-task-due-date">
             </div>
 
             <div class="priorityContainer">
-                <div class="priority-urgent" onclick="editSelectedPriority(1)" id="editPriorityUrgent">
+                <div id="editPriorityUrgent" onclick="editSelectedPriority(1)" class="priority-urgent">
                     <p>Urgent</p> 
                     <img id="editPriorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
                 </div>
 
-                <div class="priority-medium" id="editPriorityMedium" onclick="editSelectedPriority(2)">
+                <div id="editPriorityMedium" onclick="editSelectedPriority(2)" class="priority-medium">
                     <p>Medium</p> 
                     <img id="editPriorityMediumImg" src="assets/img/prio-medium.png" alt="">
                 </div>
                 
-                <div class="priority-low" id="editPriorityLow" onclick="editSelectedPriority(3)">
+                <div id="editPriorityLow" onclick="editSelectedPriority(3)" class="priority-low" >
                     <p>Low</p> 
                     <img id="editPriorityLowImg" src="assets/img/prio-low.png" alt="">
                 </div>
             </div>
 
             <div id="user_selector">
-                <div class="selector-header" onclick="showUsers(${currentTask.id})">
+                <div onclick="showUsers(${currentTask.id})" class="selector-header" >
                     Select contacts to assign
-                    <img  src="assets/img/blue-dropdown-arrow.png" alt="">
+                    <img src="assets/img/blue-dropdown-arrow.png" alt="">
                 </div>
             </div>
-            <div  id="selector_user_dropdown"></div>
+            <div id="selector_user_dropdown"></div>
             <div id="selector_user_dropdown_contact" class="contacts-in-task"></div>
 
             <h4>Subtasks:</h4>
-            <div class="detail-subTasks" id="edit_subTasks2">
+            <div id="edit_subTasks2" class="detail-subTasks" >
                 <div id="empty_subtask_text"></div>
 
                 <div class="input-container">
-                    <input class="input border-bottom" id="new_subtask_text" type="text" placeholder="Add new subtask">
+                    <input id="new_subtask_text" type="text" placeholder="Add new subtask" class="input border-bottom" >
                     <div class="checkAndCrossIconsCategory">
-                        <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
+                        <img onclick="clearSubTasks()" src="./assets/img/blue-cross.png" class="blue-cross pointer">
                         <img src="./assets/img/devider.png">
-                        <img src="./assets/img/blue-check.png" onclick="newSubTask(${id})" class="blue-check pointer">
+                        <img onclick="newSubTask(${id})" src="./assets/img/blue-check.png" class="blue-check pointer">
                     </div>
                 </div>
-                <div class="new-Subtasks" id="edit_subTasks">
+                <div id="edit_subTasks" class="new-Subtasks" >
   
                 </div>
             </div>
@@ -207,9 +207,9 @@ function renderAssignedSubTasksTemplate(currentSubTask, assignedSubTaskIndex, id
 function editShowSubTasksTemplate(currentSubTask, assignedSubTaskIndex, id) {
     return /*html*/ `
         <div id="${assignedSubTaskIndex}" class="subtasks" >  
-          <input id="subTask_${assignedSubTaskIndex}" onchange="setSubTaskDone(${id})" class="subtaskCheckbox pointer" type="checkbox">
+          <input id="subTask_${assignedSubTaskIndex}" onchange="setSubTaskDone(${id})" type="checkbox" class="subtaskCheckbox pointer">
           <span id="subTask_title_${assignedSubTaskIndex}">${currentSubTask.title}</span>
-          <img src="./assets/img/trash-blue.png" onclick="deleteSubTask(${id}, ${assignedSubTaskIndex})" class="subtasks-trash" alt="trash"> 
+          <img src="./assets/img/trash-blue.png" onclick="deleteSubTask(${id}, ${assignedSubTaskIndex})" alt="trash" class="subtasks-trash"> 
         </div>
     `;
 }
