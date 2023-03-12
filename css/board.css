@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 75px 70px 25px;
+    padding: 64px 64px 25px;
     overflow: hidden;
 }
 
@@ -18,92 +18,19 @@ h3 {
     color: #42526E;
 }
 
-.InputAndButton {
+.search-bar {
     display: flex;
-    column-gap: 35px;
-}
-
-.addTaskButton {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
-    width: 138px;
-    height: 51px;
-    background: #4589ff;
-    border: 1px solid #4589ff;
-    border-radius: 10px;
-    color: white;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
+    column-gap: 32px;
 }
 
-.addTaskButton:hover {
-    cursor: pointer;
-    background-color: #005DFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.search-input {
+.search {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    border: none;
-    outline: none;
-    padding: 0px;
-    gap: 13px;
-    width: 170px;
-    height: 19px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
 }
 
-.input-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px;
-    gap: 10px;
-    width: 226px;
-    height: 31px;
-}
-
-.search-task-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 51px;
-    width: 251px;
-    border: 1px solid #A8A8A8;
-    border-radius: 10px;
-    padding: 13px 21px;
-    gap: 10px;
-}
-
-.search-icon-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 15px;
-    width: 43px;
-    height: 31px;
-}
-
-
-.vector {
-    border: 1px solid #D1D1D1;
-    height: 31px;
-}
-
-/* .topBar {} */
 .kanbanBoard {
-    height: calc(100vh - 320px);
+    height: calc(100vh - 300px);
     width: 100%;
     display: flex;
     column-gap: 30px;
@@ -415,10 +342,11 @@ h3 {
 .add-task-headline {
     display: flex;
     justify-content: space-between;
+    margin: 0 0 40px;
 }
 
 .add-task-headline h2 {
-    margin: 0 0 40px;
+    margin: 0;
     font-size: 48px;
 }
 
@@ -895,12 +823,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         padding: 24px;
     }
 
-    .addTaskButton {
-        display: none;
-    }
-
-    .InputAndButton {
+    .search-bar {
         flex-direction: column;
+        align-items: flex-start;
         row-gap: 16px;
     }
 
