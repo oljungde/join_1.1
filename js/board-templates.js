@@ -11,16 +11,14 @@ function generateTodoHTML(element) {
             <div id="touch-move-${element.id}" class="task-menu-move">Move to:</div>
         </div>
 
-        <span class="${element['category']['TaskColor']}">${element['category']['Category']}</span>
+        <button class="${element['category']['TaskColor']}">${element['category']['Category']}</button>
 
-        <div class=titleAndText>
-            <h4 class="title">${element['title']}</h4>
-            <div class="text">${element['description']}</div>
-        </div>
-
+        <h4>${element['title']}</h4>
+        <div class="text">${element['description']}</div>
+        
         <div id="task_progress_${element['id']}" class="task-progress"></div>
 
-        <div class="UserAndPriority" id="user_and_priority">
+        <div class="user-priority" id="user_and_priority">
             <div class="contacts-in-task" id="contacts${element['id']}"></div>
             <div class="priority"><img src="assets/img/prio-${element['priority']}.png" alt=""></div>
         </div>
