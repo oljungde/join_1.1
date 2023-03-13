@@ -14,13 +14,18 @@
 
 .add-task-content {
     height: calc(100vh - 100px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 64px 64px 24px;
+    overflow: hidden;
 }
 
 .add-task-formHTML {
     height: calc(100vh - 100px);
     width: 430px;
     position: relative;
-    padding-right: 16px;
+    padding: 0 16px 8px 0;
     overflow: auto;
 }
 
@@ -43,41 +48,22 @@
 }
 
 .add-task-formHTML h4 {
-    margin-bottom: 10px;
-    margin-top: 15px;
+    margin: 0 0 8px;
+    font-size: var(--font-size-large);
+    color: #42526E;
 }
 
-
-.addTask-bottom {
+.add-task-bottom {
     position: fixed;
-    bottom: 75px;
+    bottom: 56px;
     left: 750px;
     display: flex;
     gap: 20px;
 }
 
-.clear-button {
-    width: 110px;
-    height: 60px;
-    background: #FFFFFF;
-    border: 1px solid #647188;
-    border-radius: 10px;
-    color: #647188;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
+.clear-button,
 .addTask-button {
-    width: 183px;
     height: 60px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 23px;
-    line-height: 120%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .leftcontainer {
@@ -116,47 +102,35 @@
 }
 
 @media (max-width: 1140px) {
-
-    .addTask-bottom {
+    .add-task-bottom {
         flex-direction: column;
     }
-
-    .clear-button {
-        width: 183px;
-        display: flex;
-        justify-content: center;
-    }
-
 }
 
 @media (max-width: 992px) {
-
     .add-task-content {
         align-items: center;
     }
 
-    .addTask-bottom {
+    .add-task-formHTML {
+        width: 100%;
+    }
+
+    .add-task-bottom {
         width: 100%;
         position: initial;
         flex-direction: row;
         justify-content: flex-end;
-        margin-top: 28px;
     }
-
-    .clear-button {
-        width: 110px;
-    }
-
 }
 
 @media (max-width: 768px) {
-
     .overlay-header {
         display: flex;
         align-items: center;
     }
 
-    .addTask-bottom {
+    .add-task-bottom {
         height: 80px;
         position: fixed;
         top: 0;
@@ -165,16 +139,20 @@
         margin: 0;
         padding-right: 32px;
     }
+}
 
+@media (max-width: 576px) {
+    .add-task-content {
+        padding: 64px 32px 24px;
+    }
 }
 
 @media (max-width: 456px) {
-
     .add-task-formHTML {
-        width: 100%;
+        font-size: var(--font-size-regular);
     }
 
-    .addTask-bottom {
+    .add-task-bottom {
         gap: 8px;
         padding-right: 16px;
     }
@@ -184,10 +162,6 @@
     }
 
     .addTask-button {
-        width: 170px;
         height: 50px;
-        gap: 5px;
-        padding: 4px 12px;
     }
-
 }

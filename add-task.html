@@ -37,8 +37,8 @@
 
         <div class="main-content add-task-content">
             <form onsubmit="addToTask(0, 'toDo'); return false;" class="add-task-formHTML">
-                <div class="input-title">
-                    <input id="AddTitle" type="text" placeholder="Enter a title" autocomplete="off" required>
+                <div class="input-container">
+                    <input id="AddTitle" type="text" placeholder="Enter a title" autocomplete="off" required class="add-task-title">
                 </div>
 
                 <div id="user_selector">
@@ -52,11 +52,9 @@
 
                 <div id="selector_user_dropdown_contact" class="display-flex-in-addtask"></div>
 
-                <div class="input border-bottom">
-                    <h4>Due Date</h4>
-                    <div id="input-date" class="input-date">
-                        <input id="add-date" placeholder="dd/mm/yy" type="date" class="add-date">
-                    </div>
+                <h4>Due Date</h4>
+                <div id="input-date" class="input-container">
+                    <input id="add-date" placeholder="dd/mm/yy" type="date" class="add-task-due-date">
                 </div>
 
                 <h4>Category</h4>
@@ -71,7 +69,7 @@
 
                 <div id="selector_Category_Dropdown"></div>
 
-                <div class="priorityContainer">
+                <div class="priority-container">
                     <div onclick="selectedPriority(1)" id="priorityUrgent" class="priority-urgent">
                         <p>Urgent</p>
                         <img id="priorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
@@ -88,32 +86,28 @@
                     </div>
                 </div>
 
+                <h4>Description</h4>
                 <div>
-                    <h4>Description</h4>
                     <textarea id="AddDescription" placeholder="Enter a Description" class="add-description"></textarea>
                 </div>
 
                 <h4>Subtasks</h4>
                 <div id="empty_subtask_text"></div>
 
-                <div id="newSubtask_select" class="input-subtasks pointer">
-                    <div class="inputUser">
-                        <div class="inputfield-new-user">
-                            <input id="new_subtask_text" type="text" placeholder="Add new subtask" class="input border-bottom">
+                <div id="newSubtask_select" class="input-container">
+                    <input id="new_subtask_text" type="text" placeholder="Add new subtask" class="input">
 
-                            <div class="checkAndCrossIconsCategory">
-                                <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
-                                <img src="./assets/img/devider.png">
-                                <img src="./assets/img/blue-check.png" onclick="pushSubtasks()" class="blue-check pointer">
-                            </div>
-                        </div>
+                    <div class="checkAndCrossIconsCategory">
+                        <img src="./assets/img/blue-cross.png" onclick="clearSubTasks()" class="blue-cross pointer">
+                        <img src="./assets/img/devider.png">
+                        <img src="./assets/img/blue-check.png" onclick="pushSubtasks()" class="blue-check pointer">
                     </div>
-
-                    <div id="addSubtaskCheckbox" class="new-Subtasks"></div>
                 </div>
+                <div id="addSubtaskCheckbox"></div>
 
-                <div class="addTask-bottom">
-                    <button class="btn clear-button">
+
+                <div class="add-task-bottom">
+                    <button class="btn btn-light clear-button">
                         <p>Clear</p><img src="assets/img/grey-cross.png" alt="">
                     </button>
 

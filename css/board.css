@@ -403,12 +403,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: center;
 }
 
-.priorityContainer {
+.priority-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
     gap: 10px;
-
 }
 
 .priority-urgent,
@@ -465,10 +464,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     outline: none;
     resize: vertical;
     overflow: hidden;
-}
-
-.inputUser {
-    width: 100%;
 }
 
 .inputfield-new-user {
@@ -738,7 +733,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         row-gap: 16px;
     }
 
-    .priorityContainer {
+    .priority-container {
         flex-direction: column;
         align-items: center;
     }

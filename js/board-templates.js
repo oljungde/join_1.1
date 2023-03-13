@@ -128,7 +128,7 @@ function changeTaskTemplate(id) {
                 <input id="add-date" value="${currentTask.dueDate}" type="date" class="add-task-due-date">
             </div>
 
-            <div class="priorityContainer">
+            <div class="priority-container">
                 <div id="editPriorityUrgent" onclick="editSelectedPriority(1)" class="priority-urgent">
                     <p>Urgent</p> 
                     <img id="editPriorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
@@ -166,7 +166,7 @@ function changeTaskTemplate(id) {
                         <img onclick="newSubTask(${id})" src="./assets/img/blue-check.png" class="blue-check pointer">
                     </div>
                 </div>
-                <div id="edit_subTasks" class="new-Subtasks" >
+                <div id="edit_subTasks">
   
                 </div>
             </div>
