@@ -8,7 +8,7 @@
 function contactDetailHtml(contact, lettersFB, index) {
     return /*html*/`
         <div id="${index}" class="contact-detail-main-side animationFadeInRight">
-            <div class="back-in-media-contact">
+            <div class="back">
                 <img onclick="closeMediaContact(${index})" src="./assets/img/arrow-back.png" alt="">
             </div>
 
@@ -16,25 +16,25 @@ function contactDetailHtml(contact, lettersFB, index) {
                 <div class="contact-detail-big-letter" style="background-color: ${contact['contactcolor']}" >${lettersFB}</div>
 
                 <div class="contact-detail-name-task">
-                    <p class="contact-detail-big-name">${contact['contactName']}</p>
-                    <p onclick="OpenContactAddTask('0', ${index})" class="contact-detail-add-task"><img src="./assets/img/blue-plus.png" alt="">Add Task</p>
+                    <span class="contact-detail-big-name">${contact['contactName']}</span>
+                    <span onclick="OpenContactAddTask('0', ${index})" class="contact-detail-add-task"><img src="./assets/img/blue-plus.png" alt="">Add Task</span>
                 </div>
             </div>
 
             <div class="contact-detail-info-main">
-                <p class="contact-detail-info">Contact Information</p>
-                <p onclick="editContact('${index}', '${lettersFB}')" class="contact-detail-edit" ><img src="./assets/img/icon_edit_contact.png" alt="" class="icon-edit-contact"> Edit Contact</p>
+                <span class="contact-detail-info">Contact Information</span>
+                <span onclick="editContact('${index}', '${lettersFB}')" class="contact-detail-edit" ><img src="./assets/img/icon_edit_contact.png" alt="" class="icon-edit-contact"> Edit Contact</span>
             </div>
 
-            <div>
+            <div class="contact-details-container">
                 <div>
-                    <p class="contact-detail-email-number">Email</p>
-                    <a href="mailto:${contact['contactEmail']}"><span>${contact['contactEmail']}</span></a>
+                    <h4 class="contact-details">Email</h4>
+                    <a href="mailto:${contact['contactEmail']}">${contact['contactEmail']}</a>
                 </div>
 
                 <div>
-                    <p class="contact-detail-email-number">Mobile</p>
-                    <p>${contact['contactNumber']}</p>
+                    <h4 class="contact-details">Mobile</h4>
+                    <a href="tel:${contact['contactNumber']}">${contact['contactNumber']}</a>
                 </div>
             </div>
         </div>
@@ -51,14 +51,14 @@ function contactDetailHtml(contact, lettersFB, index) {
  */
 function contactChildHtml(i, lettersFB, index) {
     return /*html*/`
-        <div id="${index}"  onclick="openDetailContact('${index}', '${lettersFB}' )" class="contact-child-div">
-            <div class="contact-child" style="background-color: ${i['contactcolor']}">
-                <p>${lettersFB}</p>
+        <div id="${index}"  onclick="openDetailContact('${index}', '${lettersFB}' )" class="contact">
+            <div class="contact-initials" style="background-color: ${i['contactcolor']}">
+                ${lettersFB}
             </div>
             
-            <div>
-                <p class="contact-child-name">${i['contactName']}</p>
-                <p class="contact-child-email">${i['contactEmail']}</p>
+            <div class="contact-data">
+                <span class="contact-name">${i['contactName']}</span>
+                <span class="contact-email">${i['contactEmail']}</span>
             </div>
         </div>
     `;
@@ -72,8 +72,8 @@ function contactChildHtml(i, lettersFB, index) {
  */
 function contactBarHtml(letter) {
     return /*html*/`
-    <div class="contact-letter-main" >
-        <h4  class="contact-letter">${letter}</h4>
+    <div class="index-container" >
+        <h4  class="index-letter">${letter}</h4>
         <div id="${letter}"></div>
     </div>
     `;

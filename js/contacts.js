@@ -249,8 +249,8 @@ function openDetailContact(index, lettersFB) {
     let contact = currentUser.contacts[index];
     let contactMedia = window.matchMedia('(max-width: 1120px)')
     if (contactMedia.matches) {
-        document.getElementById('contactbar').classList.add('display-contact-none');
-        document.getElementById('contact-detail-in-main').classList.remove('display-contact-none');
+        document.getElementById('contactbar').classList.add('display-none');
+        document.getElementById('contact-detail-in-main').classList.remove('display-none');
     }
     let contactdetailsinmedia = document.getElementById('contact-detail-in-main');
     contactdetailsinmedia.innerHTML = '';
@@ -267,9 +267,9 @@ function openDetailContact(index, lettersFB) {
  */
 function changeColorInContact(index) {
     for (let i = 0; i < currentUser.contacts.length; i++) {
-        document.getElementById(i).classList.remove('contact-child-div-klick')
+        document.getElementById(i).classList.remove('contact-active')
     }
-    document.getElementById(index).classList.add('contact-child-div-klick');
+    document.getElementById(index).classList.add('contact-active');
 }
 
 
@@ -402,9 +402,9 @@ function clearContactDetails() {
 function closeMediaContact(index) {
     let contactdetails = document.getElementById('contactdetails');
     contactdetails.innerHTML = '';
-    document.getElementById(index).classList.remove('contact-child-div-klick');
-    document.getElementById('contact-detail-in-main').classList.add('display-contact-none');
-    document.getElementById('contactbar').classList.remove('display-contact-none');
+    document.getElementById(index).classList.remove('contact-active');
+    document.getElementById('contact-detail-in-main').classList.add('display-none');
+    document.getElementById('contactbar').classList.remove('display-none');
 }
 
 
@@ -445,8 +445,8 @@ function OpenContactAddTask(i, index) {
  */
 function deleteContacts(index) {
     closeAddContact(0);
-    document.getElementById('contact-detail-in-main').classList.add('display-contact-none');
-    document.getElementById('contactbar').classList.remove('display-contact-none');
+    document.getElementById('contact-detail-in-main').classList.add('display-none');
+    document.getElementById('contactbar').classList.remove('display-none');
     let letter = currentUser.contacts[index]['contactletter'];
     currentUser.contacts.splice(index, 1);
     let indexofletter = deleteContactletter(letter);

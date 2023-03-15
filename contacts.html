@@ -24,16 +24,16 @@
     <script src="./js/board-templates.js"></script>
 </head>
 
-<body onload="initContacts()" class="overflow-hidden">
+<body onload="initContacts()">
     <div w3-include-html="./assets/templates/header.html" class="mainheader"></div>
 
-    <div class="display">
+    <div class="Main-Container">
         <div w3-include-html="./assets/templates/navigation.html" class="sidebar"></div>
 
         <div class="contact-main">
             <div id="contactbar" class="contact-bar"></div>
 
-            <div id="contact-detail-in-main" class="display-contact-none"></div>
+            <div id="contact-detail-in-main" class="display-none"></div>
         </div>
 
         <div class="contact-right-side">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="show-button">
-            <div onclick="openAddContact(0)">New contact <img class="new-contact-button-img" src="./assets/img/contact-member.png" alt="" class="new-contact-button"></div>
+            <button onclick="openAddContact(0)" class="btn">New contact <img class="new-contact-button-img" src="./assets/img/contact-member.png" alt=""></button>
         </div>
     </div>
 
