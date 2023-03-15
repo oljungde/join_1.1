@@ -22,9 +22,27 @@ a:hover {
     color: var(--color-blue-main-hover);
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .headline {
     margin-top: 0;
-    font-size: var(--font-size-xxxlarge);
+    font-size: var(--font-size-xxxllarge);
 }
 
 .btn {
@@ -84,9 +102,9 @@ a:hover {
     color: #d1d1d1;
 }
 
-/* .border-bottom {
+.border-bottom {
     border-bottom: var(--border);
-} */
+}
 
 .display-none {
     display: none !important;
@@ -176,6 +194,7 @@ a:hover {
 
 /* Style for the Sidenav-link  */
 .sidebar {
+    min-height: calc(100vh - 100px);
     min-width: 230px;
     background-color: white;
     display: flex;
@@ -269,6 +288,7 @@ a:hover {
     .sidebar {
         min-width: 100%;
         max-height: 70px;
+        min-height: unset;
         position: sticky;
         bottom: 0;
         left: 0;

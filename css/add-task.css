@@ -29,24 +29,6 @@
     overflow: auto;
 }
 
-.add-task-formHTML::-webkit-scrollbar {
-    width: 5px;
-}
-
-.add-task-formHTML::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.add-task-formHTML::-webkit-scrollbar-thumb {
-    background: lightgrey;
-    border-radius: 4px;
-}
-
-.add-task-formHTML::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
 .add-task-formHTML h4 {
     margin: 0 0 8px;
     font-size: var(--font-size-large);

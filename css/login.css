@@ -76,7 +76,7 @@
 .input input {
     width: 100%;
     border: none;
-    font-size: var(--font-size-regular);
+    font-size: var(--font-size-large);
 }
 
 .input input:focus {

@@ -54,28 +54,6 @@ h3 {
     overflow: auto;
 }
 
-.kanban-board::-webkit-scrollbar,
-.add-task-container::-webkit-scrollbar {
-    width: 5px;
-}
-
-.kanban-board::-webkit-scrollbar-track,
-.add-task-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.kanban-board::-webkit-scrollbar-thumb,
-.add-task-container::-webkit-scrollbar-thumb {
-    background: lightgrey;
-    border-radius: 4px;
-}
-
-.kanban-board::-webkit-scrollbar-thumb:hover,
-.add-task-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
 .drag-area-Container {
     width: 25%;
     position: relative;
