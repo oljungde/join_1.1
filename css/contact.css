@@ -207,15 +207,62 @@
     left: 0;
     background-color: white;
     border-radius: 0px 30px 30px 0px;
-    box-shadow: 0px 0px 4px rgb(0 0 0 / 16%);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     overflow: auto;
+}
+
+.add-contact::-webkit-scrollbar {
+    width: 5px;
+}
+
+.add-contact::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.add-contact::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    border-radius: 4px;
+}
+
+.add-contact::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .add-contact-head {
     background-color: #4589ff;
-    width: 580px;
     padding-bottom: 70px;
     border-radius: 0px 30px 0px 0px;
+}
+
+.add-contact-close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.img-close {
+    margin: 24px;
+    cursor: pointer;
+}
+
+.add-contact-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-contact-h {
+    font-weight: 700;
+    font-size: 48px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.add-contact-text {
+    font-weight: 400;
+    font-size: 27px;
+    color: #ffffff;
 }
 
 .add-contact-main {
@@ -244,64 +291,6 @@
     display: flex;
     gap: 32px;
     margin: 30px 0;
-}
-
-.button-cancel {
-    width: 136px;
-    height: 61px;
-    background-color: #ffffff;
-    border: 1px solid #647188;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 23px;
-}
-
-.button-create {
-    width: 210px;
-    height: 61px;
-    background-color: #4589ff;
-    color: #ffffff;
-    border-radius: 10px;
-    font-size: 23px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border: 0;
-}
-
-.img-cross {
-    margin: 20px;
-}
-
-.img-cross:hover {
-    cursor: pointer;
-}
-
-.add-contact-header-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.add-contact-cross {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.add-contact-h {
-    font-weight: 700;
-    font-size: 48px;
-    color: #ffffff;
-    margin: 0;
-}
-
-.add-contact-text {
-    font-weight: 400;
-    font-size: 27px;
-    color: #ffffff;
 }
 
 .icon-edit-contact {
@@ -337,18 +326,7 @@
     cursor: pointer;
 }
 
-.button-create:hover {
-    cursor: pointer;
-    background-color: #005DFF;
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.4);
-}
 
-.button-cancel:hover {
-    cursor: pointer;
-    border: 2px solid #005DFF;
-    color: #005DFF;
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.4);
-}
 
 .popup-contact-create {
     position: absolute;

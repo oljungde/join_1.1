@@ -39,19 +39,25 @@ a:hover {
     font-size: var(--font-size-xxlarge);
     color: white;
     cursor: pointer;
+
+}
+
+.btn:hover {
+    background-color: var(--color-blue-main-hover);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .btn a {
     color: white;
 }
 
-.btn:hover {
-    background-color: var(--color-blue-main-hover);
-}
-
 .btn-light {
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 8px 16px;
+    gap: 8px;
     border: 1px solid #647188;
     border-radius: 10px;
     font-size: var(--font-size-xxlarge);
@@ -60,9 +66,8 @@ a:hover {
 }
 
 .btn-light:hover {
-    background-color: var(--color-blue-main-hover);
-    color: white;
-    border-color: transparent;
+    border-color: var(--color-blue-main-hover);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-input-placeholder {
@@ -172,6 +177,7 @@ a:hover {
 /* Style for the Sidenav-link  */
 .sidebar {
     min-width: 230px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -88,11 +88,11 @@ function addNewContactHtml(mo) {
     return /*html*/`
         <div onclick="doNotClose(event)" class="add-contact animationFadeIn">
             <div class="add-contact-head">
-                <div class="add-contact-cross">
-                    <img onclick="closeAddContact(${mo})" src="./assets/img/pngegg.png" alt="" class="img-cross" >
+                <div class="add-contact-close">
+                    <img onclick="closeAddContact(${mo})" src="./assets/img/pngegg.png" alt="" class="img-close" >
                 </div>
 
-                <div class="add-contact-header-info" >           
+                <div class="add-contact-header" >           
                     <div class="add-contact-h">
                         Add contact
                     </div>
@@ -127,8 +127,8 @@ function addNewContactHtml(mo) {
                     </div>
 
                     <div class="button-container">
-                        <button type="reset" class="button-cancel">Cancel <img src="./assets/img/cancel.png" alt=""></button>
-                        <button type="submit" class="button-create">Create contact <img src="./assets/img/rithe.png" alt=""></button>
+                        <button type="reset" class="btn-light">Cancel <img src="./assets/img/cancel.png" alt=""></button>
+                        <button type="submit" class="btn">Create contact <img src="./assets/img/rithe.png" alt=""></button>
                     </div>
                 </form>
             </div>
@@ -148,11 +148,11 @@ function editContactHtml(contact, lettersFB, index) {
     return /*html*/`
         <div onclick="doNotClose(event)" class="add-contact animationFadeIn">
             <div class="add-contact-head">
-                <div onclick="hideAddContacts()" class="add-contact-cross">
-                    <img src="./assets/img/pngegg.png" alt="" class="img-cross">
+                <div onclick="hideAddContacts()" class="add-contact-close">
+                    <img src="./assets/img/pngegg.png" alt="" class="img-close">
                 </div>
 
-                <div class="add-contact-header-info">
+                <div class="add-contact-header">
                     <div class="add-contact-h">Edit contact</div>                   
                 </div>
             </div>
