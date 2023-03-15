@@ -155,7 +155,7 @@ input[type="checkbox"]:checked:before {
 
 .user-data-assign {
     margin: 8px 24px;
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-regular);
     color: red;
 }
 
@@ -201,7 +201,7 @@ input[type="checkbox"]:checked:before {
     .input-column {
         flex-direction: column-reverse;
         align-items: flex-start;
-        font-size: var(--font-size-small);
+        font-size: var(--font-size-regular);
     }
 
     .headline {

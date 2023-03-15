@@ -124,7 +124,7 @@
 }
 
 .urgentnumber {
-    font: bold var(--font-size-h1) 'Open Sans', sans-serif;
+    font: bold var(--font-size-xxxlarge) 'Open Sans', sans-serif;
     color: #FFFFFF;
     margin-left: 20px;
 }
@@ -170,7 +170,7 @@
 }
 
 .todonumber {
-    font: bold var(--font-size-h1) 'OpenSans', sans-serif;
+    font: bold var(--font-size-xxxlarge) 'OpenSans', sans-serif;
     color: #000000;
 }
 
@@ -265,7 +265,7 @@
     }
 
     .name {
-        font-size: var(--font-size-h1);
+        font-size: var(--font-size-xxxlarge);
     }
 
     .tasksurgent,
@@ -379,6 +379,14 @@
 
     .flexaround {
         gap: 10px;
+    }
+
+    .deadlinetime {
+        font-size: var(--font-size-large);
+    }
+
+    .deadlinetext {
+        font-size: var(--font-size-regular);
     }
 
     .tasksurgent,

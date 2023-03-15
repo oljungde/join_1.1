@@ -157,7 +157,7 @@ function showChangeInputCategory() {
         </div>
     
       <div id="categoryColorCells">
-        <img onclick="addCategoryColor('lightblueCategory')" src="./assets/img/lightblueCategory.png" class="categoryColor pointer">
+        <img onclick="addCategoryColor('lightblueCategory')" src="./assets/img/lightblue-category.png" class="categoryColor pointer">
         <img onclick="addCategoryColor('redCategory')" src="./assets/img/redCategory.png" class="categoryColor pointer" >
         <img onclick="addCategoryColor('greenCategory')" src="./assets/img/greenCategory.png" class="categoryColor pointer">
         <img onclick="addCategoryColor('orangeCategory')" src="./assets/img/orangeCategory.png" class="categoryColor pointer">
