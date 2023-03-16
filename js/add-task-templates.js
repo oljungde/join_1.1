@@ -27,7 +27,7 @@ function openAddTaskHtml(i, taskStatus) {
       </div>
 
       <h4>Category</h4>  
-      <div id="chooseCategory" class="alert display-none">This field is required</div>      
+      <div id="chooseCategory" class="alert display-none">Category field is required</div>      
       <div id="category_selector">
         <div id="selected_category" onclick="showTaskCategories()" class="selector-header">
           Select task category
@@ -36,7 +36,7 @@ function openAddTaskHtml(i, taskStatus) {
       </div>
       <div id="selector_Category_Dropdown"></div>
 
-      <span id="chossePriority" class="alert display-none">This field is required</span>
+      <span id="chossePriority" class="alert display-none">Priority field is required</span>
       <div class="priority-container">
         <div id="priorityUrgent" onclick="selectedPriority(1)" class="priority-urgent" >
           <p>Urgent</p> 
@@ -156,13 +156,13 @@ function showChangeInputCategory() {
           </div>
         </div>
     
-      <div id="categoryColorCells">
-        <img onclick="addCategoryColor('lightblueCategory')" src="./assets/img/lightblue-category.png" class="categoryColor pointer">
+      <div id="categoryColorCells" class="color-cells">
+        <img onclick="addCategoryColor('lightblueCategory')" src="./assets/img/lightblueCategory.png" class="categoryColor pointer">
         <img onclick="addCategoryColor('redCategory')" src="./assets/img/redCategory.png" class="categoryColor pointer" >
         <img onclick="addCategoryColor('greenCategory')" src="./assets/img/greenCategory.png" class="categoryColor pointer">
         <img onclick="addCategoryColor('orangeCategory')" src="./assets/img/orangeCategory.png" class="categoryColor pointer">
         <img onclick="addCategoryColor('purpleCategory')" src="./assets/img/purpleCategory.png" class="categoryColor pointer">
-        <img onclick="addCategoryColor('blueCategory')" src="./assets/img/blue-category.png" class="categoryColor pointer">
+        <img onclick="addCategoryColor('blueCategory')" src="./assets/img/blueCategory.png" class="categoryColor pointer">
       </div>
     </div>`;
 }

@@ -41,30 +41,8 @@ async function addToTask(i, taskStatus) {
     document.getElementById('chossePriority').classList.remove('display-none');
   }
   else {
-    let title = document.getElementById('AddTitle');
-    let description = document.getElementById('AddDescription');
-    let dueDate = document.getElementById('add-date');
-
-    let currentTask = {
-      "id": (new Date().getTime() * Math.random()).toFixed(0),
-      "category": {
-        Category: taskCategoryFinaly,
-        TaskColor: taskCategoryColorFinaly,
-      },
-      "title": title.value,
-      "description": description.value.replace(/\n/g, "<br>\n"),
-      "dueDate": dueDate.value,
-      "priority": prioritySelect,
-      "user": userSelect,
-      "subTasks": subTasks,
-      'status': taskStatus
-    };
-    currentUserTasks.push(currentTask);
-    await backend.setItem('users', JSON.stringify(users));
-    prioritySelect = [];
-    taskCategoryFinaly = [];
-    subTasks = [];
-    userSelect = [];
+    await addTask(taskStatus);
+    resetAddTask();
     if (i == 0) {
       window.location.href = './board.html';
       filterTasksByStatus();
@@ -77,6 +55,37 @@ async function addToTask(i, taskStatus) {
     }
   }
   selectorcontactIndex = 0;
+}
+
+
+async function addTask(taskStatus) {
+  let title = document.getElementById('AddTitle');
+  let description = document.getElementById('AddDescription');
+  let dueDate = document.getElementById('add-date');
+  let currentTask = {
+    "id": (new Date().getTime() * Math.random()).toFixed(0),
+    "category": {
+      Category: taskCategoryFinaly,
+      TaskColor: taskCategoryColorFinaly,
+    },
+    "title": title.value,
+    "description": description.value.replace(/\n/g, "<br>\n"),
+    "dueDate": dueDate.value,
+    "priority": prioritySelect,
+    "user": userSelect,
+    "subTasks": subTasks,
+    'status': taskStatus
+  };
+  currentUserTasks.push(currentTask);
+  await backend.setItem('users', JSON.stringify(users));
+}
+
+
+function resetAddTask() {
+  prioritySelect = [];
+  taskCategoryFinaly = [];
+  subTasks = [];
+  userSelect = [];
 }
 
 
@@ -209,25 +218,34 @@ function showUsers(contact) {
       document.getElementById('selector_user_dropdown').innerHTML += showInviteNewContact();
     }
     if (contact == 0) {
-      let f = savecontactforaddtask;
-      let contactintask = currentUser.contacts[f];
-      let contactInitials = contactintask['contactInitials'];
-      let contactcolor = contactintask['contactcolor'];
-      let contactname = contactintask['contactName'];
-      selectedUser(contactInitials, contactcolor, contactname);
+      addContactSelection();
     }
     if (userSelect.length > 0) {
-      for (let o = 0; o < userSelect.length; o++) {
-        let contactInitials = userSelect[o]['contactInitials'];
-        let contactcolor = userSelect[o]['concolor'];
-        let contactname = userSelect[o]['contactname'];
-        // let id = userSelect[o]['id'];
-        selectedUserAdd(contactInitials, contactcolor, contactname);
-      }
+      renderSelectedUserContacts();
     }
   }
   else {
     showSelectedContactBubbles();
+  }
+}
+
+
+function addContactSelection() {
+  let f = savecontactforaddtask;
+  let contactintask = currentUser.contacts[f];
+  let contactInitials = contactintask['contactInitials'];
+  let contactcolor = contactintask['contactcolor'];
+  let contactname = contactintask['contactName'];
+  selectedUser(contactInitials, contactcolor, contactname);
+}
+
+
+function renderSelectedUserContacts() {
+  for (let o = 0; o < userSelect.length; o++) {
+    let contactInitials = userSelect[o]['contactInitials'];
+    let contactcolor = userSelect[o]['concolor'];
+    let contactname = userSelect[o]['contactname'];
+    selectedUserAdd(contactInitials, contactcolor, contactname);
   }
 }
 
@@ -267,22 +285,32 @@ function selectedUser(contactInitials, contactcolor, contactname) {
   let index = findeContactIndex(contactcolor);
   let look = index - 1;
   if (document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.contains('checked')) {
-    userSelect.splice(index, 1)
-    document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.remove('checked');
-    document.getElementById('user_select' + contactInitials + contactcolor + contactname).src = 'assets/img/userSelect-img.png';
+    unselectContact(index, contactInitials, contactcolor, contactname);
   }
   else if (look < 0) {
 
   }
   else {
-    userSelect.push({
-      'contactInitials': contactInitials,
-      'concolor': contactcolor,
-      'contactname': contactname
-    });
-    document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.add('checked');
-    document.getElementById('user_select' + contactInitials + contactcolor + contactname).src = 'assets/img/userSelect-selected.png';
+    selectContact(contactInitials, contactcolor, contactname)
   }
+}
+
+
+function unselectContact(index, contactInitials, contactcolor, contactname) {
+  userSelect.splice(index, 1)
+  document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.remove('checked');
+  document.getElementById('user_select' + contactInitials + contactcolor + contactname).src = 'assets/img/userSelect-img.png';
+}
+
+
+function selectContact(contactInitials, contactcolor, contactname) {
+  userSelect.push({
+    'contactInitials': contactInitials,
+    'concolor': contactcolor,
+    'contactname': contactname
+  });
+  document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.add('checked');
+  document.getElementById('user_select' + contactInitials + contactcolor + contactname).src = 'assets/img/userSelect-selected.png';
 }
 
 
@@ -305,7 +333,6 @@ function showTaskCategories() {
     document.getElementById('selector_Category_Dropdown').innerHTML += showNewCategory();
     for (let n = 0; n < currentUser.category.length; n++) {
       let staticCategorys = currentUser.category[n];
-
       document.getElementById('selector_Category_Dropdown').innerHTML += showExistingCategories(staticCategorys);
     }
     selectorCategoryIndex++;
@@ -324,7 +351,7 @@ function showTaskCategories() {
 function selectedCategory(category, color) {
   taskCategoryFinaly = category;
   taskCategoryColorFinaly = color;
-  document.getElementById("category_selector").innerHTML = showSelectCategory(category, color);
+  document.getElementById('category_selector').innerHTML = showSelectCategory(category, color);
   document.getElementById('selector_Category_Dropdown').innerHTML = '';
   selectorCategoryIndex--;
 }
@@ -355,8 +382,8 @@ function exitCategoryInput() {
 function addCategoryColor(value) {
   if (document.getElementById("input-new-category").value) {
     categorySelectedColor = value;
-    document.getElementById("categoryColorCells").innerHTML = ``;
-    document.getElementById("categoryColorCells").innerHTML = /*html*/` <img class="chosen-color" src="./assets/img/${categorySelectedColor}.png" alt="">`;
+    document.getElementById('categoryColorCells').innerHTML = ``;
+    document.getElementById('categoryColorCells').innerHTML = /*html*/` <img class="chosen-color" src="./assets/img/${categorySelectedColor}.png" alt="">`;
     document.getElementById('alert_message').innerHTML = '';
   } else {
     document.getElementById('alert_message').innerHTML = `Please enter category first!`;
@@ -368,7 +395,7 @@ function addCategoryColor(value) {
  * adds a individual category to the task
  */
 async function addCategory() {
-  newCategory = document.getElementById("input-new-category").value;
+  newCategory = document.getElementById('input-new-category').value;
   if (categorySelectedColor && newCategory) {
     currentUser.category.push({
       'taskCategory': newCategory,
@@ -380,7 +407,7 @@ async function addCategory() {
     exitCategoryInput();
     showTaskCategories();
   } else {
-    document.getElementById("alert_message").innerHTML = `Please select a category name and then a color!`;
+    document.getElementById('alert_message').innerHTML = `Please select a category name and then a color!`;
   }
 };
 
@@ -391,15 +418,15 @@ async function addCategory() {
  */
 function selectedPriority(i) {
   if (i == 1) {
-    prioritySelect = "urgent";
+    prioritySelect = 'urgent';
     urgentPrioritySelected();
   }
   if (i == 2) {
-    prioritySelect = "medium";
+    prioritySelect = 'medium';
     mediumPrioritySelected()
   }
   if (i == 3) {
-    prioritySelect = "low";
+    prioritySelect = 'low';
     lowPrioritySelected()
   }
 }
@@ -409,9 +436,9 @@ function selectedPriority(i) {
  * Highlights the button when urgent is selected
  */
 function urgentPrioritySelected() {
-  document.getElementById("priorityUrgent").classList.add('prio-urgent-selected');
-  document.getElementById("priorityMedium").classList.remove('prio-medium-selected');
-  document.getElementById("priorityLow").classList.remove('prio-low-selected');
+  document.getElementById('priorityUrgent').classList.add('prio-urgent-selected');
+  document.getElementById('priorityMedium').classList.remove('prio-medium-selected');
+  document.getElementById('priorityLow').classList.remove('prio-low-selected');
   document.getElementById('priorityUrgentImg').src = 'assets/img/prio-urgent-white.png';
   document.getElementById('priorityMediumImg').src = 'assets/img/prio-medium.png';
   document.getElementById('priorityLowImg').src = 'assets/img/prio-low.png';
@@ -422,9 +449,9 @@ function urgentPrioritySelected() {
  * Highlights the button when medium is selected
  */
 function mediumPrioritySelected() {
-  document.getElementById("priorityMedium").classList.add('prio-medium-selected');
-  document.getElementById("priorityUrgent").classList.remove('prio-urgent-selected');
-  document.getElementById("priorityLow").classList.remove('prio-low-selected');
+  document.getElementById('priorityMedium').classList.add('prio-medium-selected');
+  document.getElementById('priorityUrgent').classList.remove('prio-urgent-selected');
+  document.getElementById('priorityLow').classList.remove('prio-low-selected');
   document.getElementById('priorityUrgentImg').src = 'assets/img/prio-urgent.png';
   document.getElementById('priorityMediumImg').src = 'assets/img/prio-medium-white.png';
   document.getElementById('priorityLowImg').src = 'assets/img/prio-low.png';
@@ -434,9 +461,9 @@ function mediumPrioritySelected() {
  * Highlights the button when low is selected
  */
 function lowPrioritySelected() {
-  document.getElementById("priorityLow").classList.add('prio-low-selected');
-  document.getElementById("priorityUrgent").classList.remove('prio-urgent-selected');
-  document.getElementById("priorityMedium").classList.remove('prio-medium-selected');
+  document.getElementById('priorityLow').classList.add('prio-low-selected');
+  document.getElementById('priorityUrgent').classList.remove('prio-urgent-selected');
+  document.getElementById('priorityMedium').classList.remove('prio-medium-selected');
   document.getElementById('priorityUrgentImg').src = 'assets/img/prio-urgent.png';
   document.getElementById('priorityMediumImg').src = 'assets/img/prio-medium.png';
   document.getElementById('priorityLowImg').src = 'assets/img/prio-low-white.png';
