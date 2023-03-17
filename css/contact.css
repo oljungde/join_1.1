@@ -328,7 +328,7 @@
     #contact-detail-in-main {
         position: absolute;
         top: 8px;
-        left: 262px;
+        left: 32px;
         right: 32px;
         background-color: #ffffff;
         z-index: 96;
@@ -366,7 +366,7 @@
     }
 
     .contact-main {
-        height: calc(100vh - 150px);
+        height: calc(100vh - 125px);
         overflow: hidden;
     }
 

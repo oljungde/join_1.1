@@ -665,7 +665,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 
     .kanban-board {
-        height: 100%;
         margin: 16px 0;
     }
 
@@ -713,6 +712,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         flex-direction: column;
         align-items: flex-start;
         row-gap: 16px;
+    }
+
+    .add-task-title {
+        font-size: var(--font-size-xxllarge) !important;
+    }
+
+    .selector-header {
+        font-size: var(--font-size-regular);
     }
 
     .priority-container {

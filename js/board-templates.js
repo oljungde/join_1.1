@@ -129,19 +129,19 @@ function changeTaskTemplate(id) {
             </div>
 
             <div class="priority-container">
-                <div id="editPriorityUrgent" onclick="editSelectedPriority(1)" class="priority-urgent">
+                <div id="priorityUrgent" onclick="selectedPriority(1)" class="priority-urgent">
                     <p>Urgent</p> 
-                    <img id="editPriorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
+                    <img id="priorityUrgentImg" src="assets/img/prio-urgent.png" alt="">
                 </div>
 
-                <div id="editPriorityMedium" onclick="editSelectedPriority(2)" class="priority-medium">
+                <div id="priorityMedium" onclick="selectedPriority(2)" class="priority-medium">
                     <p>Medium</p> 
-                    <img id="editPriorityMediumImg" src="assets/img/prio-medium.png" alt="">
+                    <img id="priorityMediumImg" src="./assets/img/prio-medium.png" alt="">
                 </div>
                 
-                <div id="editPriorityLow" onclick="editSelectedPriority(3)" class="priority-low" >
+                <div id="priorityLow" onclick="selectedPriority(3)" class="priority-low" >
                     <p>Low</p> 
-                    <img id="editPriorityLowImg" src="assets/img/prio-low.png" alt="">
+                    <img id="priorityLowImg" src="./assets/img/prio-low.png" alt="">
                 </div>
             </div>
 
