@@ -180,8 +180,8 @@ function editContactHtml(contact, lettersFB, index) {
                     </div>
 
                     <div class="button-container">
-                        <button type="button" onclick="deleteContacts(${index})" class="button-cancel">Delete <img src="./assets/img/cancel.png" alt=""></button>
-                        <button type="submit">Save <img src="./assets/img/rithe.png" alt="" class="button-create"></button>
+                        <button type="button" onclick="deleteContacts(${index})" class="btn-light">Delete <img src="./assets/img/cancel.png" alt=""></button>
+                        <button type="submit" class="btn">Save <img src="./assets/img/rithe.png" alt=""></button>
                     </div>
                 </form>
             </div>

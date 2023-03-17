@@ -110,7 +110,6 @@ function checkOrLoad(look, contactName, contactTask, mo) {
         if (mo == 1) {
             let letter = contactName.charAt(0);
             if (currentUser.lettertask.includes(letter)) {
-                // clearContactBar( mo);
             }
             else {
                 saveLetterContact(letter);
