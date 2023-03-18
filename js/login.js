@@ -93,7 +93,7 @@ function guestLogin() {
     let dataCheck = document.getElementById('data_check');
     loginForm.setAttribute('novalidate', 'true');
     dataCheck.innerHTML = '';
-    checkUserData('noreply@nix.de', 'password');
+    checkUserData('noreply@oljung.de', 'password');
 }
 
 
