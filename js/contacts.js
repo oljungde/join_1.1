@@ -79,7 +79,7 @@ function createContact(mo) {
     let contactNumber = document.getElementById('contactNumber').value;
     let contactName = smallName.charAt(0).toUpperCase() + smallName.slice(1);
     let firstName = contactName.charAt(0);
-    var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     let letterFB = contactName.match(/\b(\w)/g).join('');
     let lettersFB = letterFB.toUpperCase();
     let contactTask = {
