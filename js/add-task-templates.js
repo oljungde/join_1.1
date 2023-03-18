@@ -122,9 +122,9 @@ function showSelectCategory(category, color) {
 function showNewCategory() {
   return /*html*/`
     <div onclick="changeInputCategory()" class="selectorCell">
-       <div>New category</div>
-         <div class="selectorCellColor"><img src=""></div>
-       </div>
+        <div>New category</div>
+          <div class="selectorCellColor"><img src=""></div>
+        </div>
     </div>
   `;
 }

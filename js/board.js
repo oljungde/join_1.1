@@ -189,10 +189,12 @@ function startDragging(id) {
  */
 function allowDrop(ev) {
     ev.preventDefault();
+    let status = currentUserTasks[currentDraggedElement]['status'];
     let dragTemplates = document.querySelectorAll('.drag-template');
     dragTemplates.forEach(dragTemplate => {
         dragTemplate.classList.add('drag-template-start');
         dragTemplate.classList.remove('display-none');
+        document.getElementById(`drop_template_${status}`).classList.add('display-none');
     });
 }
 

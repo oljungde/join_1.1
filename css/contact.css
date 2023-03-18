@@ -240,6 +240,16 @@
     padding: 70px 0;
 }
 
+#contactNumber::-webkit-outer-spin-button,
+#contactNumber::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .contact-member {
     width: 130px;
     height: 130px;

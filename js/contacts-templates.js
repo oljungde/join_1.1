@@ -13,7 +13,9 @@ function contactDetailHtml(contact, lettersFB, index) {
             </div>
 
             <div class="contact-detail-head">
-                <div class="contact-detail-big-letter" style="background-color: ${contact['contactcolor']}" >${lettersFB}</div>
+                <div class="contact-detail-big-letter" style="background-color: ${contact['contactcolor']}" >
+                    ${lettersFB}
+                </div>
 
                 <div class="contact-detail-name-task">
                     <span class="contact-detail-big-name">${contact['contactName']}</span>
@@ -104,7 +106,9 @@ function addNewContactHtml(mo) {
             </div>
 
             <div class="add-contact-main">
-                <div class="contact-member"><img src="./assets/img/contact-member.png" alt=""></div>
+                <div class="contact-member">
+                    <img src="./assets/img/contact-member.png" alt="">
+                </div>
 
                 <form onsubmit="createContact(${mo}); return false;" onreset="closeAddContact(${mo})">
                     <div class="input-add-contact-container">
@@ -118,10 +122,12 @@ function addNewContactHtml(mo) {
                             <img src="./assets/img/login-email.png" alt="">
                         </div>
 
-                        <div  id="emailDone" class="display-none contact-email-done">This Email already exists</div>
+                        <div  id="emailDone" class="display-none contact-email-done">
+                            This Email already exists
+                        </div>
 
                         <div class="input-contact">
-                            <input id="contactNumber" placeholder="Phone" required type="text" class="input-contact-name">
+                            <input id="contactNumber" placeholder="Phone" required type="number" class="input-contact-name">
                             <img src="./assets/img/phone.png" alt="">
                         </div>
                     </div>
@@ -153,7 +159,9 @@ function editContactHtml(contact, lettersFB, index) {
                 </div>
 
                 <div class="add-contact-header">
-                    <div class="add-contact-h">Edit contact</div>                   
+                    <div class="add-contact-h">
+                        Edit contact
+                    </div>                   
                 </div>
             </div>
 

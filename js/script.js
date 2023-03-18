@@ -40,7 +40,6 @@ async function includeHTML() {
  * checks if the user is logged in
  */
 function checkUserIsLoggedIn() {
-    checkRememberMeStatus();
     let loginStatus = sessionStorage.getItem('loggedIn');
     if (loginStatus == 'true' && (window.location.pathname == '/index.html' || window.location.pathname == '/')) {
         window.location.href = './summary.html';
@@ -68,22 +67,8 @@ function getCurrentUser() {
  * user will redirect to log in page index.html
  */
 function logout() {
-    localStorage.removeItem('userLoggedInEmail', '');
-    localStorage.removeItem('userLoggedInName', '');
     sessionStorage.removeItem('loggedIn');
-    localStorage.removeItem('rememberMe');
     window.location.href = './index.html';
-}
-
-
-/**
- * checks the remember me status of the user and log the in if the remember me status true
- */
-function checkRememberMeStatus() {
-    let rememberMeStatus = localStorage.getItem('rememberMe');
-    if (rememberMeStatus == 'true') {
-        sessionStorage.setItem('loggedIn', 'true')
-    }
 }
 
 

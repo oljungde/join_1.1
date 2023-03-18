@@ -67,12 +67,13 @@ h3 {
 }
 
 .drag-area-top-Section {
+    height: 60px;
     background-color: white;
     position: sticky;
     top: 0;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     padding: 0 8px;
     z-index: 5;
 }

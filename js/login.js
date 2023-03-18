@@ -6,6 +6,7 @@ let screenWidth576 = window.matchMedia('(max-width: 576px)');
  */
 async function initLogin() {
     await init();
+    isRememberMe();
     checkUserIsLoggedIn();
     passwordInputIconChange();
     mediaQuery576(screenWidth576)
@@ -20,16 +21,6 @@ async function initResetPassword() {
     await init();
     passwordInputIconChange();
     passwordConfirmIconChange();
-}
-
-
-/**
- * get data from login form an execute the function to check it
- */
-function userLogin() {
-    let userEmail = document.getElementById('user_email').value;
-    let userPassword = document.getElementById('user_password').value;
-    checkUserData(userEmail, userPassword)
 }
 
 
@@ -50,6 +41,28 @@ function mediaQuery576(screenWidth576) {
         joinUser.classList.add('display-none');
     }
 }
+
+
+/**
+ * get data from login form an execute the function to check it
+ */
+function userLogin() {
+    let userEmail = document.getElementById('user_email').value;
+    let userPassword = document.getElementById('user_password').value;
+    checkUserData(userEmail, userPassword)
+}
+
+
+function isRememberMe() {
+    let rememberMe = localStorage.getItem('rememberMe');
+    if (rememberMe == 'true') {
+        let userEmail = localStorage.getItem('userLoggedInEmail');
+        let userPassword = localStorage.getItem('userLoggedInPassword');
+        document.getElementById('user_email').value = userEmail;
+        document.getElementById('user_password').value = userPassword;
+    }
+}
+
 
 
 /**
@@ -80,6 +93,7 @@ function userLogIn(indexOfEmail) {
     }
     localStorage.setItem('userLoggedInName', users[indexOfEmail].name);
     localStorage.setItem('userLoggedInEmail', users[indexOfEmail].email);
+    localStorage.setItem('userLoggedInPassword', users[indexOfEmail].password);
     sessionStorage.setItem('loggedIn', 'true');
     window.location.href = './summary.html';
 }
