@@ -6,7 +6,7 @@ $recipient = $_POST['email'];
 $timestamp = time();
 $link = "https://oliver-jung.developerakademie.net/join/reset-password.html?email=" . $recipient . "&timestamp=" . $timestamp;
 $message = "Hello, \r\n
-you can reset your password by clicking on the link below äöüß: \r\n
+you can reset your password by clicking on the link below: \r\n
 $link \r\n
 Best greetings 
 Customer Service
