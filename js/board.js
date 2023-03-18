@@ -307,7 +307,7 @@ function renderAssignedContactsDetails() {
     for (let assignedContactsIndex = 0; assignedContactsIndex < currentTask.user.length; assignedContactsIndex++) {
         let letter = currentTask.user[assignedContactsIndex]['contactInitials'];
         let color = currentTask.user[assignedContactsIndex]['concolor'];
-        let name = currentTask.user[assignedContactsIndex]['contactname'];
+        let name = currentTask.user[assignedContactsIndex]['contactName'];
         detailAssignedContacts.innerHTML +=/*html*/ `
         <div class="detail-contact">
         <div style="background-color: ${color}" class="user">${letter}</div>
@@ -342,7 +342,7 @@ function changeTask(id) {
  * @param {number} currentTaskId is the id from the current task to save
  */
 async function saveChangedTask(currentTaskId) {
-    selectorcontactIndex = 0;
+    selectorContactIndex = 0;
     let changedTitle = document.getElementById('changed_title').value;
     let changedDescription = document.getElementById('changed_description').value.replace(/\n/g, "<br>\n");
     let changedDueDate = document.getElementById('add-date').value;

@@ -98,9 +98,9 @@ function showInviteNewContact() {
  */
 function showContactsDropDown(i, activUserContact, currentUser) {
   return /*html*/`
-  <div onclick="selectedUser('${currentUser.contacts[i]['contactInitials']}', '${currentUser.contacts[i]['contactcolor']}', '${currentUser.contacts[i]['contactName']}')" class="selectorCell">
+  <div onclick="selectedUser('${currentUser.contacts[i]['contactInitials']}', '${currentUser.contacts[i]['contactColor']}', '${currentUser.contacts[i]['contactName']}')" class="selectorCell">
       <div>${activUserContact[i].contactName}</div>
-      <div><img id="user_select${currentUser.contacts[i]['contactInitials']}${currentUser.contacts[i]['contactcolor']}${currentUser.contacts[i]['contactName']}" src="./assets/img/userSelect-img.png"></div>
+      <div><img id="user_select${currentUser.contacts[i]['contactInitials']}${currentUser.contacts[i]['contactColor']}${currentUser.contacts[i]['contactName']}" src="./assets/img/userSelect-img.png"></div>
   </div>
   `;
 }

@@ -13,7 +13,7 @@ function contactDetailHtml(contact, lettersFB, index) {
             </div>
 
             <div class="contact-detail-head">
-                <div class="contact-detail-big-letter" style="background-color: ${contact['contactcolor']}" >
+                <div class="contact-detail-big-letter" style="background-color: ${contact['contactColor']}" >
                     ${lettersFB}
                 </div>
 
@@ -54,7 +54,7 @@ function contactDetailHtml(contact, lettersFB, index) {
 function contactChildHtml(i, lettersFB, index) {
     return /*html*/`
         <div id="${index}"  onclick="openDetailContact('${index}', '${lettersFB}' )" class="contact">
-            <div class="contact-initials" style="background-color: ${i['contactcolor']}">
+            <div class="contact-initials" style="background-color: ${i['contactColor']}">
                 ${lettersFB}
             </div>
             
@@ -166,7 +166,7 @@ function editContactHtml(contact, lettersFB, index) {
             </div>
 
             <div class="add-contact-main">
-                <div class="contact-detail-big-letter" style="background-color: ${contact['contactcolor']}">
+                <div class="contact-detail-big-letter" style="background-color: ${contact['contactColor']}">
                     <p>${lettersFB}</p>
                 </div>
                 <form onsubmit="invEditContact('${contact['contactEmail']}', '${index}', '${lettersFB}'); return false">

@@ -2,7 +2,7 @@ let today = new Date().toISOString().split('T')[0];
 let selectorCategoryIndex = 0;
 let taskCategorySelector = [];
 let categorySelectedColor;
-let selectorcontactIndex = 0;
+let selectorContactIndex = 0;
 let userSelect = [];
 let taskCategoryFinaly = [];
 let prioritySelect = [];
@@ -50,11 +50,11 @@ async function addToTask(i, taskStatus) {
     else if (i == 1) {
       document.getElementById('add-task-overlay').classList.add('display-none');
       document.getElementById('add-task-container').innerHTML = '';
-      ShowTaskAddedPopUp();
+      showTaskAddedPopUp();
       filterTasksByStatus();
     }
   }
-  selectorcontactIndex = 0;
+  selectorContactIndex = 0;
 }
 
 
@@ -92,7 +92,7 @@ function resetAddTask() {
 /**
  * generates the pop up ater a task is created
  */
-function ShowTaskAddedPopUp() {
+function showTaskAddedPopUp() {
   document.getElementById('task_added_to_board_img').classList.remove('display-none');
   setTimeout(() => {
     document.getElementById('task_added_to_board_img').classList.add('display-none');
@@ -110,8 +110,8 @@ function openAddTaskMask(i, taskStatus) {
   document.getElementById('add-task-container').classList.remove('display-none');
   userSelect = [];
   selectedSubtasks = [];
-  let openaddtask = document.getElementById('add-task-container');
-  openaddtask.innerHTML = openAddTaskHtml(i, taskStatus);
+  let openAddTask = document.getElementById('add-task-container');
+  openAddTask.innerHTML = openAddTaskHtml(i, taskStatus);
   getToday();
 }
 
@@ -191,12 +191,12 @@ function closeAddTaskMask(i) {
   userSelect = [];
   if (i == 1) {
     document.getElementById('add-task-overlay').classList.add('display-none');
-    selectorcontactIndex = 0;
+    selectorContactIndex = 0;
   }
   else if (i == 0) {
     document.getElementById('openContactAddtaskBG').classList.add('display-none');
-    selectorcontactIndex = 0;
-    LFContact();
+    selectorContactIndex = 0;
+    contactsAddTask();
   }
 }
 
@@ -208,9 +208,9 @@ function closeAddTaskMask(i) {
 function showUsers(contact) {
   let activUserContact = currentUser.contacts;
   document.getElementById('selector_user_dropdown').innerHTML = ``;
-  if (selectorcontactIndex == 0) {
+  if (selectorContactIndex == 0) {
     document.getElementById('selector_user_dropdown_contact').innerHTML = ``;
-    selectorcontactIndex++;
+    selectorContactIndex++;
     for (let i = 0; i < activUserContact.length; i++) {
       document.getElementById('selector_user_dropdown').innerHTML += showContactsDropDown(i, activUserContact, currentUser);
     }
@@ -231,21 +231,21 @@ function showUsers(contact) {
 
 
 function addContactSelection() {
-  let f = savecontactforaddtask;
-  let contactintask = currentUser.contacts[f];
-  let contactInitials = contactintask['contactInitials'];
-  let contactcolor = contactintask['contactcolor'];
-  let contactname = contactintask['contactName'];
-  selectedUser(contactInitials, contactcolor, contactname);
+  let f = saveContactForAddTask;
+  let contactInTask = currentUser.contacts[f];
+  let contactInitials = contactInTask['contactInitials'];
+  let contactColor = contactInTask['contactColor'];
+  let contactName = contactInTask['contactName'];
+  selectedUser(contactInitials, contactColor, contactName);
 }
 
 
 function renderSelectedUserContacts() {
   for (let o = 0; o < userSelect.length; o++) {
     let contactInitials = userSelect[o]['contactInitials'];
-    let contactcolor = userSelect[o]['concolor'];
-    let contactname = userSelect[o]['contactname'];
-    selectedUserAdd(contactInitials, contactcolor, contactname);
+    let contactColor = userSelect[o]['concolor'];
+    let contactName = userSelect[o]['contactName'];
+    selectedUserAdd(contactInitials, contactColor, contactName);
   }
 }
 
@@ -260,64 +260,64 @@ function showSelectedContactBubbles() {
         <div style="background-color:${userSelect[i]['concolor']}" class="user edit-contact-list">${userSelect[i]['contactInitials']}</div>
       `;
   }
-  selectorcontactIndex--;
+  selectorContactIndex--;
 }
 
 
-function LFContact() {
-  let f = savecontactforaddtask;
-  let contactintask = currentUser.contacts[f];
-  let contactcolor = contactintask['contactcolor'];
-  let index = findeContactIndex(contactcolor);
+function contactsAddTask() {
+  let f = saveContactForAddTask;
+  let contactInTask = currentUser.contacts[f];
+  let contactColor = contactInTask['contactColor'];
+  let index = findeContactIndex(contactColor);
   userSelect.splice(index, 1);
   document.getElementById('selector_user_dropdown').innerHTML = ``;
 }
 
 
-function selectedUserAdd(contactInitials, contactcolor, contactname) {
-  document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.add('checked');
-  document.getElementById('user_select' + contactInitials + contactcolor + contactname).src = 'assets/img/userSelect-selected.png';
+function selectedUserAdd(contactInitials, contactColor, contactName) {
+  document.getElementById('user_select' + contactInitials + contactColor + contactName).classList.add('checked');
+  document.getElementById('user_select' + contactInitials + contactColor + contactName).src = 'assets/img/userSelect-selected.png';
 }
 
 
 // getting selected User
-function selectedUser(contactInitials, contactcolor, contactname) {
-  let index = findeContactIndex(contactcolor);
+function selectedUser(contactInitials, contactColor, contactName) {
+  let index = findeContactIndex(contactColor);
   let look = index - 1;
-  if (document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.contains('checked')) {
-    unselectContact(index, contactInitials, contactcolor, contactname);
+  if (document.getElementById('user_select' + contactInitials + contactColor + contactName).classList.contains('checked')) {
+    unselectContact(index, contactInitials, contactColor, contactName);
   }
   else if (look < 0) {
 
   }
   else {
-    selectContact(contactInitials, contactcolor, contactname)
+    selectContact(contactInitials, contactColor, contactName)
   }
 }
 
 
-function unselectContact(index, contactInitials, contactcolor, contactname) {
+function unselectContact(index, contactInitials, contactColor, contactName) {
   userSelect.splice(index, 1)
-  document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.remove('checked');
-  document.getElementById('user_select' + contactInitials + contactcolor + contactname).src = 'assets/img/userSelect-img.png';
+  document.getElementById('user_select' + contactInitials + contactColor + contactName).classList.remove('checked');
+  document.getElementById('user_select' + contactInitials + contactColor + contactName).src = 'assets/img/userSelect-img.png';
 }
 
 
-function selectContact(contactInitials, contactcolor, contactname) {
+function selectContact(contactInitials, contactColor, contactName) {
   userSelect.push({
     'contactInitials': contactInitials,
-    'concolor': contactcolor,
-    'contactname': contactname
+    'concolor': contactColor,
+    'contactName': contactName
   });
-  document.getElementById('user_select' + contactInitials + contactcolor + contactname).classList.add('checked');
-  document.getElementById('user_select' + contactInitials + contactcolor + contactname).src = 'assets/img/userSelect-selected.png';
+  document.getElementById('user_select' + contactInitials + contactColor + contactName).classList.add('checked');
+  document.getElementById('user_select' + contactInitials + contactColor + contactName).src = 'assets/img/userSelect-selected.png';
 }
 
 
-function findeContactIndex(contactcolor) {
+function findeContactIndex(contactColor) {
   let index;
   for (let i = 0; i < userSelect.length; i++) {
-    if (userSelect[i].concolor == contactcolor)
+    if (userSelect[i].concolor == contactColor)
       index = i;
   }
   return index;

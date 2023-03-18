@@ -96,7 +96,7 @@ function pushNewUser(userName, userEmail, userPassword) {
         'password': userPassword,
         'tasks': [],
         'contacts': [],
-        'lettertask': [],
+        'letterTask': [],
         'category':
             [{ taskCategory: 'Sales', taskColor: 'purpleCategory' },
             { taskCategory: 'Backoffice', taskColor: 'blueCategory' }]

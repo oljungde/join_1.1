@@ -1,4 +1,4 @@
-let savecontactforaddtask;
+let saveContactForAddTask;
 let contactsInitials;
 
 /**
@@ -86,8 +86,8 @@ function createContact(mo) {
         'contactName': contactName,
         'contactEmail': contactEmail,
         'contactNumber': contactNumber,
-        'contactletter': firstName,
-        'contactcolor': randomColor,
+        'contactLetter': firstName,
+        'contactColor': randomColor,
         'contactInitials': lettersFB
     };
     let look = checkEmailInArray(contactTask);
@@ -109,13 +109,13 @@ function checkOrLoad(look, contactName, contactTask, mo) {
         }
         if (mo == 1) {
             let letter = contactName.charAt(0);
-            if (currentUser.lettertask.includes(letter)) {
+            if (currentUser.letterTask.includes(letter)) {
             }
             else {
                 saveLetterContact(letter);
             }
             closeAddContact(mo);
-            selectorcontactIndex = 0;
+            selectorContactIndex = 0;
             showUsers(mo);
         }
     }
@@ -168,7 +168,7 @@ function fillAllTasks(contactName, mo) {
     let letter = contactName.charAt(0);
     closeAddContact(mo);
     popupContactSave();
-    if (currentUser.lettertask.includes(letter)) {
+    if (currentUser.letterTask.includes(letter)) {
         clearContactBar(mo);
     }
     else {
@@ -186,8 +186,8 @@ function fillAllTasks(contactName, mo) {
  * @param {string} letter first letter of the name
  */
 async function saveLetterContact(letter) {
-    currentUser.lettertask.push(letter);
-    currentUser.lettertask.sort();
+    currentUser.letterTask.push(letter);
+    currentUser.letterTask.sort();
     await backend.setItem('users', JSON.stringify(users));
 }
 
@@ -203,8 +203,8 @@ function popupContactSave() {
 // Clear Contact Letter Bar
 function clearContactBar(mo) {
     if (mo == 0) {
-        for (let i = 0; i < currentUser.lettertask.length; i++) {
-            let clear = currentUser.lettertask[i];
+        for (let i = 0; i < currentUser.letterTask.length; i++) {
+            let clear = currentUser.letterTask[i];
             let contactSmall = document.getElementById(clear)
             while (contactSmall.lastChild) {
                 contactSmall.removeChild(contactSmall.lastChild);
@@ -220,7 +220,7 @@ function contactChild() {
     for (let index = 0; index < currentUser.contacts.length; index++) {
         let i = currentUser.contacts[index];
         let lettersFB = currentUser.contacts[index]['contactInitials'];
-        let l = currentUser.contacts[index]['contactletter'];
+        let l = currentUser.contacts[index]['contactLetter'];
         let contactchildsid = document.getElementById(l);
         contactchildsid.innerHTML += contactChildHtml(i, lettersFB, index);
     }
@@ -231,8 +231,8 @@ function contactChild() {
 function createContactBar() {
     let contactBar = document.getElementById('contactbar');
     contactBar.innerHTML = '';
-    for (let i = 0; i < currentUser.lettertask.length; i++) {
-        let l = currentUser.lettertask[i];
+    for (let i = 0; i < currentUser.letterTask.length; i++) {
+        let l = currentUser.letterTask[i];
         contactBar.innerHTML += contactBarHtml(l);
     }
 }
@@ -307,7 +307,7 @@ function invEditContact(oldEmail, index, lettersFB) {
         'contactInitials': contactInitials,
         'contactEmail': contactEmail,
         'contactNumber': contactNumber,
-        'contactletter': firstName,
+        'contactLetter': firstName,
         'oldEmail': oldEmail
     };
     lettersFB = contactInitials;
@@ -341,25 +341,25 @@ async function changeUser(object, id, lettersFB) {
  */
 function changeContact(object, index) {
     currentUser.contacts[index]['contactName'] = object['contactName'];
-    currentUser.contacts[index]['contactletter'] = object['contactletter'];
+    currentUser.contacts[index]['contactLetter'] = object['contactLetter'];
     currentUser.contacts[index]['contactEmail'] = object['contactEmail'];
     currentUser.contacts[index]['contactNumber'] = object['contactNumber'];
     currentUser.contacts[index]['contactInitials'] = object['contactInitials'];
-    buildNewLettertask();
+    buildnewLetterTask();
 }
 
 
-function buildNewLettertask() {
+function buildnewLetterTask() {
     contactsInitials = currentUser.contacts.map((contactsFirstLetters) => {
-        return contactsFirstLetters.contactletter;
+        return contactsFirstLetters.contactLetter;
     });
-    getNewLettertask();
+    getnewLetterTask();
 }
 
 
-async function getNewLettertask() {
-    let newLettertask = [...new Set(contactsInitials)];
-    currentUser.lettertask = newLettertask;
+async function getnewLetterTask() {
+    let newLetterTask = [...new Set(contactsInitials)];
+    currentUser.letterTask = newLetterTask;
     await backend.setItem('users', JSON.stringify(users));
 }
 
@@ -369,15 +369,15 @@ async function getNewLettertask() {
  * @param {string} letter first letter of a name
  */
 function renderContacts(letter) {
-    if (currentUser.lettertask.includes(letter)) {
+    if (currentUser.letterTask.includes(letter)) {
         clearContactBar();
     }
     else {
         let contactBar = document.getElementById('contactbar');
         contactBar.innerHTML = '';
-        let lettertask = currentUser.lettertask;
-        lettertask.push(letter);
-        lettertask.sort();
+        let letterTask = currentUser.letterTask;
+        letterTask.push(letter);
+        letterTask.sort();
         createContactBar();
         contactChild();
     }
@@ -429,11 +429,11 @@ function getUserIndexForEmail(email) {
  * @param {number} index position in the array
  */
 function OpenContactAddTask(i, index) {
-    savecontactforaddtask = index;
-    let openaddtask = document.getElementById('openContactAddtask');
+    saveContactForAddTask = index;
+    let openAddTask = document.getElementById('openContactAddtask');
     document.getElementById('openContactAddtaskBG').classList.remove('display-none');
     let taskStatus = 'toDo';
-    openaddtask.innerHTML = openAddTaskHtml(i, taskStatus);
+    openAddTask.innerHTML = openAddTaskHtml(i, taskStatus);
     getToday();
 }
 
@@ -446,14 +446,14 @@ function deleteContacts(index) {
     closeAddContact(0);
     document.getElementById('contact-detail-in-main').classList.add('display-none');
     document.getElementById('contactbar').classList.remove('display-none');
-    let letter = currentUser.contacts[index]['contactletter'];
+    let letter = currentUser.contacts[index]['contactLetter'];
     currentUser.contacts.splice(index, 1);
-    let indexofletter = deleteContactletter(letter);
+    let indexofletter = deletecontactLetter(letter);
     if (indexofletter == -1) {
-        for (let l = 0; l < currentUser.lettertask.length; l++) {
-            let element = currentUser.lettertask[l];
+        for (let l = 0; l < currentUser.letterTask.length; l++) {
+            let element = currentUser.letterTask[l];
             if (element == letter) {
-                currentUser.lettertask.splice(l, 1);
+                currentUser.letterTask.splice(l, 1);
                 let clear = document.getElementById(letter);
                 clear.remove();
             }
@@ -472,7 +472,7 @@ function deleteContacts(index) {
  * @param {string} letter first letter of the name
  * @returns 
  */
-function deleteContactletter(letter) {
+function deletecontactLetter(letter) {
     let userindex = -1;
     for (i = 0; i < currentUser.contacts.length; i++) {
         let lettersFB = currentUser.contacts[i]['contactName'].charAt(0);
