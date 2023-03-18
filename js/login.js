@@ -59,8 +59,8 @@ function mediaQuery576(screenWidth576) {
  */
 function checkUserData(userEmail, userPassword) {
     let indexOfEmail = users.findIndex(user => user.email == userEmail);
-    let indexOfPassword = users.findIndex(user => user.password == userPassword);
-    if (indexOfEmail == -1 || indexOfPassword == -1) {
+    let loginPassword = users[indexOfEmail].password;
+    if (indexOfEmail == -1 || loginPassword != userPassword) {
         let dataCheck = document.getElementById('data_check');
         dataCheck.classList.remove('display-none');
     } else {

@@ -4,9 +4,9 @@
 
 $recipient = $_POST['email'];
 $timestamp = time();
-$link = "https://gruppe-377.developerakademie.net/reset-password.html?email=" . $recipient . "&timestamp=" . $timestamp;
+$link = "https://oliver-jung.developerakademie.net/join/reset-password.html?email=" . $recipient . "&timestamp=" . $timestamp;
 $message = "Hello, \r\n
-you can reset your password by clicking on the link below: \r\n
+you can reset your password by clicking on the link below äöüß: \r\n
 $link \r\n
 Best greetings 
 Customer Service
@@ -48,9 +48,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
         header("Access-Control-Allow-Origin: *");
 
         $subject = "Password reset Join Kanban Board";
-        $headers = "From:  noreply@developerakademie.com";
+        $headers = array();
+        $headers[] = "MIME-Version: 1.0";
+        $headers[] = "Content-type: text/plain; charset=utf-8";
+        $headers[] = "From:  noreply@developerakademie.com";
 
-        mail($recipient, $subject, $message, $headers);
+        mail($recipient, $subject, $message, implode("\r\n", $headers));
         header("Location: " . $redirect); 
 
         break;
