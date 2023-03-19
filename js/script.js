@@ -68,6 +68,13 @@ function getCurrentUser() {
  */
 function logout() {
     sessionStorage.removeItem('loggedIn');
+    let userLoggedInName = localStorage.getItem('userLoggedInName');
+    if (userLoggedInName == 'Guest User') {
+        localStorage.removeItem('userLoggedInName');
+        localStorage.removeItem('userLoggedInEmail');
+        localStorage.removeItem('userLoggedInPassword');
+        localStorage.removeItem('rememberMe');
+    }
     window.location.href = './index.html';
 }
 
