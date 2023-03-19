@@ -72,14 +72,17 @@ function isRememberMe() {
  */
 function checkUserData(userEmail, userPassword) {
     let indexOfEmail = users.findIndex(user => user.email == userEmail);
-    if (indexOfEmail != -1) {
-        let loginPassword = users[indexOfEmail].password;
-    }
-    if (indexOfEmail == -1 || loginPassword != userPassword) {
+    if (indexOfEmail == -1) {
         let dataCheck = document.getElementById('data_check');
         dataCheck.classList.remove('display-none');
     } else {
-        userLogIn(indexOfEmail);
+        let loginPassword = users[indexOfEmail].password;
+        if (userPassword != loginPassword) {
+            let dataCheck = document.getElementById('data_check');
+            dataCheck.classList.remove('display-none');
+        } else {
+            userLogIn(indexOfEmail);
+        }
     }
 }
 
