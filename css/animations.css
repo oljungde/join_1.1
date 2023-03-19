@@ -184,3 +184,10 @@
         transform: translateX(0);
     }
 }
+
+@media (max-width: 576px) {
+    .start-overlay {
+        height: calc(100vh + 64px);
+        top: -64px;
+    }
+}
