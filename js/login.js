@@ -112,6 +112,11 @@ function guestLogin() {
     let dataCheck = document.getElementById('data_check');
     loginForm.setAttribute('novalidate', 'true');
     dataCheck.innerHTML = '';
+    document.getElementById('user_email').value = '';
+    document.getElementById('user_password').value = '';
+    localStorage.removeItem('userLoggedInName');
+    localStorage.removeItem('userLoggedInEmail');
+    localStorage.removeItem('userLoggedInPassword');
     checkUserData('noreply@oljung.de', 'password');
 }
 
