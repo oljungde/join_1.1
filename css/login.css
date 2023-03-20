@@ -154,7 +154,8 @@ input[type="checkbox"]:checked:before {
 }
 
 .user-data-assign {
-    margin: 8px 24px;
+    width: calc(100% - 48px);
+    margin: 8px 16px;
     font-size: var(--font-size-regular);
     color: red;
 }
