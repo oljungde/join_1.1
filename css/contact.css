@@ -81,6 +81,7 @@
 }
 
 .contact-email {
+    width: 181px;
     font-size: var(--font-size-regular);
 }
 

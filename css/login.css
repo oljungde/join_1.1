@@ -154,8 +154,8 @@ input[type="checkbox"]:checked:before {
 }
 
 .user-data-assign {
-    width: calc(100% - 48px);
-    margin: 8px 16px;
+    width: 346px;
+    margin: 8px 24px;
     font-size: var(--font-size-regular);
     color: red;
 }
@@ -209,6 +209,10 @@ input[type="checkbox"]:checked:before {
         text-align: center;
     }
 
+    .user-data-assign {
+        width: 299px;
+        margin: 8px 16px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -272,4 +276,7 @@ input[type="checkbox"]:checked:before {
         width: 60%;
     }
 
+    .user-data-assign {
+        max-width: 208px;
+    }
 }
