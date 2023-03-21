@@ -38,19 +38,19 @@ function openAddTaskHtml(i, taskStatus) {
 
       <span id="chossePriority" class="alert display-none">Priority field is required</span>
       <div class="priority-container">
-        <div id="priorityUrgent" onclick="selectedPriority(1)" class="priority-urgent" >
+        <div id="priority_urgent" onclick="selectedPriority(1)" class="priority-urgent" >
           <p>Urgent</p> 
-          <img id="priorityUrgentImg" src="./assets/img/prio-urgent.png" alt="">
+          <img id="priority_img_urgent" src="./assets/img/prio-urgent.png" alt="">
         </div>
 
-        <div id="priorityMedium" onclick="selectedPriority(2)" class="priority-medium" >
+        <div id="priority_medium" onclick="selectedPriority(2)" class="priority-medium" >
           <p>Medium</p> 
-          <img id="priorityMediumImg" src="./assets/img/prio-medium.png" alt="">
+          <img id="priority_img_medium" src="./assets/img/prio-medium.png" alt="">
         </div>
 
-        <div id="priorityLow" onclick="selectedPriority(3)" class="priority-low">
+        <div id="priority_low" onclick="selectedPriority(3)" class="priority-low">
           <p>Low</p> 
-          <img id="priorityLowImg" src="./assets/img/prio-low.png" alt="">
+          <img id="priority_img_low" src="./assets/img/prio-low.png" alt="">
         </div>
       </div>
 

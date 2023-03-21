@@ -4,15 +4,15 @@
 function editShowSelectedPriority() {
     if (currentTask.priority == "urgent") {
         prioritySelect = "urgent";
-        showSelectedPriorityUrgent();
+        showSelectedPriority("urgent", "medium", "low");
     }
     if (currentTask.priority == "medium") {
         prioritySelect = "medium";
-        showSelectedPriorityMedium();
+        showSelectedPriority("medium", "urgent", "low");
     }
     if (currentTask.priority == "low") {
         prioritySelect = "low";
-        showSelectedPriorityLow()
+        showSelectedPriority("low", "urgent", "medium");
     }
 }
 
@@ -24,56 +24,31 @@ function editShowSelectedPriority() {
 function selectedPriority(i) {
     if (i == 1) {
         prioritySelect = "urgent";
-        showSelectedPriorityUrgent();
+        showSelectedPriority("urgent", "medium", "low");
     }
     if (i == 2) {
         prioritySelect = "medium";
-        showSelectedPriorityMedium();
+        showSelectedPriority("medium", "urgent", "low");
     }
     if (i == 3) {
         prioritySelect = "low";
-        showSelectedPriorityLow();
+        showSelectedPriority("low", "urgent", "medium");
     }
 }
 
 
 /**
- * shows the urgent category button
+ * 
+ * @param {string} selectedPriority is the schoosen priority
+ * @param {string} priorityDeselect1 is one of the other priorities 
+ * @param {string} priorityDeselect2 is the other priority
  */
-function showSelectedPriorityUrgent() {
-    document.getElementById("priorityUrgent").classList.add('prio-urgent-selected');
-    document.getElementById("priorityMedium").classList.remove('prio-medium-selected');
-    document.getElementById("priorityLow").classList.remove('prio-low-selected');
+function showSelectedPriority(selectedPriority, priorityDeselect1, priorityDeselect2) {
+    document.getElementById(`priority_${selectedPriority}`).classList.add(`prio-${selectedPriority}-selected`);
+    document.getElementById(`priority_${priorityDeselect1}`).classList.remove(`prio-${priorityDeselect1}-selected`);
+    document.getElementById(`priority_${priorityDeselect2}`).classList.remove(`prio-${priorityDeselect2}-selected`);
 
-    document.getElementById('priorityUrgentImg').src = './assets/img/prio-urgent-white.png';
-    document.getElementById('priorityMediumImg').src = './assets/img/prio-medium.png';
-    document.getElementById('priorityLowImg').src = './assets/img/prio-low.png';
-}
-
-
-/**
- * shows the medium category button
- */
-function showSelectedPriorityMedium() {
-    document.getElementById("priorityMedium").classList.add('prio-medium-selected');
-    document.getElementById("priorityUrgent").classList.remove('prio-urgent-selected');
-    document.getElementById("priorityLow").classList.remove('prio-low-selected');
-
-    document.getElementById('priorityUrgentImg').src = './assets/img/prio-urgent.png';
-    document.getElementById('priorityMediumImg').src = './assets/img/prio-medium-white.png';
-    document.getElementById('priorityLowImg').src = './assets/img/prio-low.png';
-}
-
-
-/**
- * shows the low category button
- */
-function showSelectedPriorityLow() {
-    document.getElementById("priorityLow").classList.add('prio-low-selected');
-    document.getElementById("priorityUrgent").classList.remove('prio-urgent-selected');
-    document.getElementById("priorityMedium").classList.remove('prio-medium-selected');
-
-    document.getElementById('priorityUrgentImg').src = 'assets/img/prio-urgent.png';
-    document.getElementById('priorityMediumImg').src = 'assets/img/prio-medium.png';
-    document.getElementById('priorityLowImg').src = 'assets/img/prio-low-white.png';
+    document.getElementById(`priority_img_${selectedPriority}`).src = `./assets/img/prio-${selectedPriority}-white.png`;
+    document.getElementById(`priority_img_${priorityDeselect1}`).src = `./assets/img/prio-${priorityDeselect1}.png`;
+    document.getElementById(`priority_img_${priorityDeselect2}`).src = `./assets/img/prio-${priorityDeselect2}.png`;
 }

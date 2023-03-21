@@ -13,11 +13,11 @@ async function initSummary() {
     greetingUser();
     showNumberOfTasksUrgent();
     showNextDueDate();
-    showNumberOfTasksToDo();
+    showNumberOfTasksByStatus('toDo');
     showNumberOfTasks();
-    showNumberOfTasksInProgress();
-    showNumberOfTasksAwaitingFeedback();
-    showNumberOfTasksDone();
+    showNumberOfTasksByStatus('inProgress');
+    showNumberOfTasksByStatus('awaitingFeedback');
+    showNumberOfTasksByStatus('done');
     imgheader();
 }
 
@@ -47,22 +47,6 @@ function greetingUser() {
         welcomeMessage = welcomeTimes[2];
     }
     userGreetingBox.innerHTML = welcomeMessage;
-}
-
-
-/**
- * shows the number of tasks with the prority urgent on summary.html
- */
-function showNumberOfTasksUrgent() {
-    let numberOfTasksUrgentContainer = document.getElementById('number_of_tasks_urgent');
-    let numberOfTasksUrgent = 0;
-    for (let i = 0; i < currentUser.tasks.length; i++) {
-        let taskStatus = currentUser.tasks[i].priority;
-        if (taskStatus == 'urgent') {
-            numberOfTasksUrgent = numberOfTasksUrgent + 1;
-        }
-    }
-    numberOfTasksUrgentContainer.innerHTML = numberOfTasksUrgent;
 }
 
 
@@ -99,22 +83,6 @@ function checkNextDueDate(dueDates) {
 
 
 /**
- * shows the number of tasks with status todo
- */
-function showNumberOfTasksToDo() {
-    let numberOfTasksToDoContainer = document.getElementById('number_of_tasks_todo');
-    let numberOfTasksToDo = 0;
-    for (let i = 0; i < currentUser.tasks.length; i++) {
-        let taskStatus = currentUser.tasks[i].status;
-        if (taskStatus == 'toDo') {
-            numberOfTasksToDo = numberOfTasksToDo + 1;
-        }
-    }
-    numberOfTasksToDoContainer.innerHTML = numberOfTasksToDo;
-}
-
-
-/**
  * shows the number of all tasks incl. tasks are done
  */
 function showNumberOfTasks() {
@@ -125,48 +93,33 @@ function showNumberOfTasks() {
 
 
 /**
- * shows the number of tasks with the status in progress
+ * shows the number of tasks with the priority urgent on summary.html
  */
-function showNumberOfTasksInProgress() {
-    let numberOfTasksInProgressContainer = document.getElementById('number_of_tasks_in_progress');
-    let numberOfTasksInProgress = 0;
+function showNumberOfTasksUrgent() {
+    let numberOfTasksUrgentContainer = document.getElementById('number_of_tasks_urgent');
+    let numberOfTasksUrgent = 0;
     for (let i = 0; i < currentUser.tasks.length; i++) {
-        let taskStatus = currentUser.tasks[i].status;
-        if (taskStatus == 'inProgress') {
-            numberOfTasksInProgress = numberOfTasksInProgress + 1;
+        let taskStatus = currentUser.tasks[i].priority;
+        if (taskStatus == 'urgent') {
+            numberOfTasksUrgent = numberOfTasksUrgent + 1;
         }
     }
-    numberOfTasksInProgressContainer.innerHTML = numberOfTasksInProgress;
+    numberOfTasksUrgentContainer.innerHTML = numberOfTasksUrgent;
 }
 
 
 /**
- * shows the number of tasks with the status awaiting feedback
+ * determines the number of tasks by status
+ * @param {*} status of the task
  */
-function showNumberOfTasksAwaitingFeedback() {
-    let numberOfTasksAwaitingFeedbackContainer = document.getElementById('number_of_tasks_awaiting_feedback');
-    let numberOfTasksAwaitingFeedback = 0;
+function showNumberOfTasksByStatus(status) {
+    let numberOfTasksContainer = document.getElementById(`number_of_tasks_${status}`);
+    let numberOfTasksByStatus = 0;
     for (let i = 0; i < currentUser.tasks.length; i++) {
         let taskStatus = currentUser.tasks[i].status;
-        if (taskStatus == 'awaitingFeedback') {
-            numberOfTasksAwaitingFeedback = numberOfTasksAwaitingFeedback + 1;
+        if (taskStatus == status) {
+            numberOfTasksByStatus = numberOfTasksByStatus + 1;
         }
     }
-    numberOfTasksAwaitingFeedbackContainer.innerHTML = numberOfTasksAwaitingFeedback;
-}
-
-
-/**
- * shows the number of tasks with the status done
- */
-function showNumberOfTasksDone() {
-    let numberOfTasksAwaitingFeedbackContainer = document.getElementById('number_of_tasks_done');
-    let numberOfTasksDone = 0;
-    for (let i = 0; i < currentUser.tasks.length; i++) {
-        let taskStatus = currentUser.tasks[i].status;
-        if (taskStatus == 'done') {
-            numberOfTasksDone = numberOfTasksDone + 1;
-        }
-    }
-    numberOfTasksAwaitingFeedbackContainer.innerHTML = numberOfTasksDone;
+    numberOfTasksContainer.innerHTML = numberOfTasksByStatus;
 }
