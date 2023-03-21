@@ -166,11 +166,11 @@ function editContactHtml(contact, lettersFB, index) {
             </div>
 
             <div class="add-contact-main">
-                <div class="contact-detail-big-letter" style="background-color: ${contact['contactColor']}">
-                    <p>${lettersFB}</p>
+                <div class="contact-detail-big-letter edit-big-letter" style="background-color: ${contact['contactColor']}">
+                    ${lettersFB}
                 </div>
-                <form onsubmit="invEditContact('${contact['contactEmail']}', '${index}', '${lettersFB}'); return false">
-                    <div>
+                <form onsubmit="invEditContact('${contact['contactEmail']}', '${index}', '${lettersFB}'); return false" class="edit-contact">
+                    <div class="input-add-contact-container">
                         <div class="input-contact">
                             <input id="contactEditName" required  type="text" class="input-contact-name">
                             <img src="./assets/img/signup-user.png" alt="">

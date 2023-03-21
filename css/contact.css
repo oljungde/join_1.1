@@ -196,7 +196,7 @@
 
 .add-contact-head {
     background-color: #4589ff;
-    padding-bottom: 70px;
+    padding-bottom: 64px;
     border-radius: 0px 30px 0px 0px;
 }
 
@@ -238,7 +238,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 70px 0;
+    padding: 64px 0;
 }
 
 #contactNumber::-webkit-outer-spin-button,
@@ -249,6 +249,11 @@
 
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+.edit-contact {
+    width: 100%;
+    padding: 0 64px;
 }
 
 .contact-member {
@@ -389,7 +394,7 @@ input[type=number] {
     .add-contact-head {
         width: 100vw;
         border-radius: 0;
-        padding: 0 16px 70px;
+        padding: 0 16px 64px;
         text-align: center;
     }
 
@@ -414,13 +419,10 @@ input[type=number] {
     }
 
     .contact-detail-head {
-        flex-direction: column;
-        justify-content: center;
         margin-bottom: 20px;
     }
 
     .contact-detail-big-letter {
-        min-height: 120px;
         margin: 0;
     }
 
@@ -431,7 +433,6 @@ input[type=number] {
 
     .contact-detail-big-name {
         display: flex;
-        text-align: center;
     }
 
     .index-container {
@@ -455,6 +456,26 @@ input[type=number] {
     .index-container {
         max-width: 380px
     }
+
+    .add-contact-main {
+        padding: 32px 0 0;
+    }
+
+    .edit-big-letter {
+        height: 120px !important;
+        width: 120px;
+        font-size: var(--font-size-xxxlarge) !important;
+    }
+
+    .contact-detail-big-letter {
+        height: 80px;
+        min-width: 80px;
+        font-size: var(--font-size-xxxlaarge);
+    }
+
+    .contact-detail-big-name {
+        font-size: var(--font-size-xxxlaarge);
+    }
 }
 
 @media (max-width: 456px) {
@@ -471,5 +492,24 @@ input[type=number] {
         width: 210px;
         gap: 16px;
         justify-content: center;
+    }
+
+    .edit-contact {
+        width: 100%;
+        padding: 0 32px;
+    }
+
+    .contact-detail-big-letter {
+        height: 60px;
+        min-width: 60px;
+        font-size: var(--font-size-xxllarge);
+    }
+
+    .contact-detail-big-name {
+        font-size: var(--font-size-xxlarge);
+    }
+
+    .contact-detail-info {
+        font-size: var(--font-size-large);
     }
 }
