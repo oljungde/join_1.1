@@ -209,52 +209,40 @@ function passwordConfirmIconChange() {
 
 
 /**
- * makes the password input readable
+ * change the type of input field with the id user_password on index.html, sign-up.html and reset-password.html
+ * from password to text and change the icon on end of input
  */
-function makePasswordVisible() {
+function passwordVisibility() {
     let passwordIconHidden = document.getElementById('user_password_hidden');
     let passwordIconVisible = document.getElementById('user_password_visible');
     let userPasswordInput = document.getElementById('user_password');
-    passwordIconHidden.classList.add('display-none');
-    passwordIconVisible.classList.remove('display-none');
-    userPasswordInput.type = 'text';
+    if (userPasswordInput.type === 'password') {
+        passwordIconHidden.classList.add('display-none');
+        passwordIconVisible.classList.remove('display-none');
+        userPasswordInput.type = 'text';
+    } else {
+        passwordIconHidden.classList.remove('display-none');
+        passwordIconVisible.classList.add('display-none');
+        userPasswordInput.type = 'password';
+    }
 }
 
 
 /**
- * makes the password input unreadable
+ * change the type of input field with the id new_password_confirm on reset-password.html from password
+ * to text and change the icon on end of input
  */
-function makePasswordUnvisible() {
-    let passwordIconHidden = document.getElementById('user_password_hidden');
-    let passwordIconVisible = document.getElementById('user_password_visible');
-    let userPasswordInput = document.getElementById('user_password');
-    passwordIconHidden.classList.remove('display-none');
-    passwordIconVisible.classList.add('display-none');
-    userPasswordInput.type = 'password';
-}
-
-
-/**
- * makes the password confirm input readable
- */
-function makePasswordConfirmVisible() {
+function passwordConfirmVisibility() {
     let passwordConfirmIconHidden = document.getElementById('user_password_confirm_hidden');
     let passwordConfirmIconVisible = document.getElementById('user_password_confirm_visible');
     let userPasswordConfirmInput = document.getElementById('new_password_confirm');
-    passwordConfirmIconHidden.classList.add('display-none');
-    passwordConfirmIconVisible.classList.remove('display-none');
-    userPasswordConfirmInput.type = 'text';
-}
-
-
-/**
- * makes the password confirm input unreadable
- */
-function makePasswordConfirmUnvisible() {
-    let passwordConfirmIconHidden = document.getElementById('user_password_confirm_hidden');
-    let passwordConfirmIconVisible = document.getElementById('user_password_confirm_visible');
-    let userPasswordConfirmInput = document.getElementById('new_password_confirm');
-    passwordConfirmIconHidden.classList.remove('display-none');
-    passwordConfirmIconVisible.classList.add('display-none');
-    userPasswordConfirmInput.type = 'password';
+    if (userPasswordConfirmInput.type === 'password') {
+        passwordConfirmIconHidden.classList.add('display-none');
+        passwordConfirmIconVisible.classList.remove('display-none');
+        userPasswordConfirmInput.type = 'text';
+    } else {
+        passwordConfirmIconHidden.classList.remove('display-none');
+        passwordConfirmIconVisible.classList.add('display-none');
+        userPasswordConfirmInput.type = 'password';
+    }
 }

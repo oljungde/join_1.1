@@ -285,7 +285,7 @@ function editContact(index, lettersFB) {
     editcontact.innerHTML = editContactHtml(contact, lettersFB, index);
     document.getElementById('contactEditName').value = contact['contactName'];
     document.getElementById('contactEditEmail').value = contact['contactEmail'];
-    document.getElementById('contactEditNumber').value = contact['contactNumber'];
+    document.getElementById('contactNumber').value = contact['contactNumber'];
 }
 
 

@@ -74,6 +74,8 @@ function userEmailIsRegistered(indexOfEmail) {
  */
 function userRegister(userName, userEmail, userPassword) {
     pushNewUser(userName, userEmail, userPassword);
+    createDummyContact(userEmail);
+    createDummyTask(userEmail);
     backend.setItem('users', JSON.stringify(users));
     sessionStorage.setItem('loggedIn', 'false');
     localStorage.setItem('rememberMe', 'false');
@@ -100,6 +102,62 @@ function pushNewUser(userName, userEmail, userPassword) {
         'category':
             [{ taskCategory: 'Sales', taskColor: 'purpleCategory' },
             { taskCategory: 'Backoffice', taskColor: 'blueCategory' }]
+    });
+}
+
+
+/**
+ * creates a dummy contact for the new user
+ * @param {string} userEmail adress of the user who register
+  */
+function createDummyContact(userEmail) {
+    const newUser = users.find(user => user.email == userEmail);
+    console.log(newUser);
+    newUser.contacts.push({
+        contactColor: '#80102f',
+        contactEmail: 'dummy-contact@no-adress.com',
+        contactInitials: 'DC',
+        contactLetter: 'D',
+        contactName: 'Dummy Contact',
+        contactNumber: '123456789'
+    });
+    newUser.letterTask.push('D');
+}
+
+
+/**
+ * creates a dummy task for the new user
+ * @param {string} userEmail adress of the user who register
+ */
+function createDummyTask(userEmail) {
+    const newUser = users.find(user => user.email == userEmail);
+    newUser.tasks.push({
+        category: {
+            Category: 'Sales',
+            TaskColor: 'purpleCategory',
+        },
+        description: 'This is your first task. You can edit or delete it.',
+        dueDate: '2023-12-31',
+        id: (new Date().getTime() * Math.random()).toFixed(0),
+        priority: 'urgent',
+        status: 'toDo',
+        subTasks: [
+            {
+                title: 'Subtask 1',
+                done: true
+            },
+            {
+                title: 'Subtask 2',
+                done: false
+            }],
+        title: ' Your first task',
+        user: [
+            {
+                concolor: '#80102f',
+                contactInitials: 'DC',
+                contactName: 'Dummy Contact',
+            }
+        ]
     });
 }
 

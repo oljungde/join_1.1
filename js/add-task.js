@@ -31,7 +31,7 @@ function getToday() {
 
 /**
  * defines the current task and pushes it to the Array alltasks and saves it in the backend
- * @param {*} i - idintifies from where the task is created
+ * @param {*} i - identifies from where the task is created
  */
 async function addToTask(i, taskStatus) {
   if (taskCategoryFinaly.length == 0) {

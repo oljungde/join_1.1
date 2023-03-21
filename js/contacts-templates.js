@@ -182,7 +182,7 @@ function editContactHtml(contact, lettersFB, index) {
                         </div>
 
                         <div class="input-contact">
-                            <input id="contactEditNumber" required type="text" class="input-contact-name">
+                            <input id="contactNumber" required type="number" class="input-contact-name">
                             <img src="./assets/img/phone.png" alt="">
                         </div>
                     </div>
