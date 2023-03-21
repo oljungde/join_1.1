@@ -115,7 +115,7 @@ function createDummyContact(userEmail) {
     console.log(newUser);
     newUser.contacts.push({
         contactColor: '#80102f',
-        contactEmail: 'dummy-contact@no-adress.com',
+        contactEmail: 'dummy@no-adress.com',
         contactInitials: 'DC',
         contactLetter: 'D',
         contactName: 'Dummy Contact',
